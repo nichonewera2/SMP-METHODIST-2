@@ -1,0 +1,4239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Methodist II - Smart Database</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+/* === DATABASE SISWA === */
+const databaseSiswa = [
+  {
+    "nama": "Steven Imbalo Sirait",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-08",
+    "nama_ibu_kandung": "Lenni Manurung",
+    "nik": "1271010805130003",
+    "nisn": "0139264998",
+    "last_update": "2025-05-05T16:30:11",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "575ccff8-839a-4095-83ee-c914a295d013",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "GLENN ELNINO GINTING",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-04-06",
+    "nama_ibu_kandung": "SELASTRI AGNES",
+    "nik": "1210010604130002",
+    "nisn": "3131744391",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "30c7ffd4-9142-4445-8ca6-d4c3abcb240e",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Agatha Dhea Gracia Panggabean",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-02-26",
+    "nama_ibu_kandung": "Jone Morena Siregar",
+    "nik": "1210026602130001",
+    "nisn": "0131399743",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c3bd919a-de37-4170-987d-3b4dabeb0a1b",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "TASYA SILITONGA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-01-03",
+    "nama_ibu_kandung": "HERYANTI NOVITA SIAHAAN",
+    "nik": "1210014301130001",
+    "nisn": "0138302696",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "a1aededb-ab32-4099-9fa4-d1d1853ac7fb",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Stevany Br Sirait",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-08",
+    "nama_ibu_kandung": "LENNI MANURUNG",
+    "nik": "1271014805130002",
+    "nisn": "0139881717",
+    "last_update": "2025-05-02T20:30:15.973000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d2a28910-9008-4b70-8f36-3d4f96c9ca68",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "KENZO SYAHPUTRA SIDABUTAR",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-02-13",
+    "nama_ibu_kandung": "Junita Banjarnahor",
+    "nik": "1210021302130001",
+    "nisn": "0138328072",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "7a94221a-c5e8-4d47-b8f8-f396f47bf582",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Hermes cio Ginting",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-10-31",
+    "nama_ibu_kandung": "Elly Fitri Yani Surbakti",
+    "nik": "1210023110120003",
+    "nisn": "0122002039",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "16b9571d-bb52-4f51-a7ea-452ef9f10f8a",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "GUSTIN WIRA PRATAMA NOAK SIAHAAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-08-23",
+    "nama_ibu_kandung": "SANTI ISKA BR SILALAHI",
+    "nik": "1210012308130002",
+    "nisn": "3134884163",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "44a24940-ec37-494a-ab6e-3d80e1ce4785",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Reynata Cellia",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-09-13",
+    "nama_ibu_kandung": "Ermita Sidauruk",
+    "nik": "1210025309120001",
+    "nisn": "0123583764",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "bf1c2254-a032-4b46-981b-eb210665092e",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Yosia Simanjuntak",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-02-27",
+    "nama_ibu_kandung": "Hotlina Agustina Manurung",
+    "nik": "1210092702130001",
+    "nisn": "0134010332",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "9751296e-3a63-42e9-a1be-4021d790062c",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "ARIL MEYDIK PRATAMA SIMANJUNTAK",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-02",
+    "nama_ibu_kandung": "TIMAWAR BR HUTAHAEAN",
+    "nik": "1210020205130004",
+    "nisn": "0139641589",
+    "last_update": "2025-03-05T22:47:21.797000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "02d0a567-2340-4405-9ecc-269a8e34056b",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "AYUMI ASKHA PADANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-08",
+    "nama_ibu_kandung": "SRI LESTARI LUMBANGAOL",
+    "nik": "1210024805130003",
+    "nisn": "3132192217",
+    "last_update": "2025-12-20T05:28:41.773000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d4b52fd2-d35b-44f0-8602-216ff9790505",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "DEBORA M. GULO",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-04-13",
+    "nama_ibu_kandung": "SURTA SUSILAWATI HUTAGAOL",
+    "nik": "1210145304130001",
+    "nisn": "0138672055",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "34ad4c2a-5bbc-4d56-a9ba-072ea904da1a",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "JHOS MARIO KARO KARO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2014-06-23",
+    "nama_ibu_kandung": "PUTRI AYUNI MARPAUNG",
+    "nik": "1210082306140002",
+    "nisn": "0135276003",
+    "last_update": "2025-05-19T12:30:06.080000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c8a936f8-6137-4eb6-ba9f-70f35f49f581",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Jeremy Arapta Kacaribu",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-03",
+    "nama_ibu_kandung": "Helyta Br Tarigan",
+    "nik": "1210020311120003",
+    "nisn": "0129094573",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c462e975-b666-4829-adcd-36653073ff53",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Kelvin Antonius Sidauruk",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-13",
+    "nama_ibu_kandung": "Rohani Br Silaban",
+    "nik": "1210091311120004",
+    "nisn": "0125069320",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "8f9a5cd9-f8d7-4308-b324-708556743a58",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Caesar Augustus Barus",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-08-01",
+    "nama_ibu_kandung": "Trimurti Sri Juliana Siagian",
+    "nik": "1210010108130002",
+    "nisn": "3132630241",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "712408cf-558f-482b-a4d5-f25be1893303",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Listra Sri Indah Harahap",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-14",
+    "nama_ibu_kandung": "Juli Bengti Situmeang",
+    "nik": "1210015405130003",
+    "nisn": "0131256946",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "b6732bd5-1f08-4379-952d-325629120a68",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "HANNAH BRIDGESTINE SIREGAR",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-01-10",
+    "nama_ibu_kandung": "LENNI SIHOMBING",
+    "nik": "1210085001130004",
+    "nisn": "3137590614",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "1da1b07d-8ef9-493b-89d6-aa3f4649be9d",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "REZA HIZKIA AMANSYAH SARAGIH",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-23",
+    "nama_ibu_kandung": "MASDA SIPAYUNG",
+    "nik": "1210092303130003",
+    "nisn": "3136977690",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "480733b7-fbb5-4b56-a15a-4565d077833c",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Prinz Alvaro Gabriel Butar Butar",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-20",
+    "nama_ibu_kandung": "Tety Susanti barus",
+    "nik": "1210012005130003",
+    "nisn": "3134606978",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "41f7fa46-cafd-4e0c-afa7-ae6a2a5cf67a",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "JOEY GILBERT SEDORI SINULINGGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-05-22",
+    "nama_ibu_kandung": "ENDA ERFINA TARIGAN",
+    "nik": "1210092205120003",
+    "nisn": "3129039119",
+    "last_update": "2025-05-16T12:30:07.687000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e2b9db94-8667-4193-bf22-99ac5c6d8880",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Putry Corecy Nainggolan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-11-20",
+    "nama_ibu_kandung": "CITRA SRI MADONNA TAMBA",
+    "nik": "1210026011120002",
+    "nisn": "3127504882",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d7a36334-3cc7-4bc4-9630-de82be5f8a21",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "ZANEETA AGNESIA SIRAIT",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-04-27",
+    "nama_ibu_kandung": "PESTA MARLIANA MARBUN",
+    "nik": "1210146704120002",
+    "nisn": "0129235638",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c231f337-cd95-45cc-b756-8951511220b5",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "MIGO FERNANDES MUNTHE",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-25",
+    "nama_ibu_kandung": "EVI NATALIA",
+    "nik": "1210022512120002",
+    "nisn": "3129828670",
+    "last_update": "2025-11-19T06:03:01.927000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e8f40632-5869-4e3e-9762-3e6f34c50e0a",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Rasita Ekaristi Simanjuntak",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-02-27",
+    "nama_ibu_kandung": "SUSI BR BARUS",
+    "nik": "1210076702130002",
+    "nisn": "0136049377",
+    "last_update": "2025-11-09T19:28:16.480000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f2def5ea-fcfa-48fa-9315-400ae9b5de4b",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "Nathan Jenius Anggiat Lamhisar Siagian",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-06-03",
+    "nama_ibu_kandung": "Elida Florentina Sinaga Simanjorang",
+    "nik": "1210010306130004",
+    "nisn": "3134454730",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f74a891e-9de3-429a-a76a-40805cd36195",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "LIONEL MOSES MANIK",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-16",
+    "nama_ibu_kandung": "VIOLITA BERTHARIDA. S",
+    "nik": "1210011605130002",
+    "nisn": "3134627359",
+    "last_update": "2025-12-20T05:28:41.773000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "79f82c8b-ede9-4607-b9c9-4d0a73e3e2b9",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Alvin Gabriel Hutajulu",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-24",
+    "nama_ibu_kandung": "Yenni Monalisa Sihombing",
+    "nik": "1271042405130005",
+    "nisn": "0137548411",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "dfad3555-4a68-41d5-a556-0c65539489cd",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "FEBIOLA SEPTIA PUTRI BR NAINGGOLAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-09-29",
+    "nama_ibu_kandung": "ROTUA SUTIANI MARIA PANJAITAN",
+    "nik": "1210076909120001",
+    "nisn": "3124161161",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.d",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "cef1f99f-0a7c-46b1-8a58-5fd0374a5994",
+    "rombongan_belajar_id": "111b674a-c338-4a60-a2ad-476f26633ee9"
+  },
+  {
+    "nama": "GERALD HAZAEL DAMANIK",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-25",
+    "nama_ibu_kandung": "RUGUN ROMEGA SIMANJORANG",
+    "nik": "1208292503130002",
+    "nisn": "3138561621",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "065bcb3e-9957-4018-8b58-059b6f1b75ca",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Alfonso Todo Sagala",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-02-23",
+    "nama_ibu_kandung": "Perawati Pakpahan",
+    "nik": "1222042302130003",
+    "nisn": "3139009141",
+    "last_update": "2025-11-29T12:39:04.153000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "77588804-8bd5-4958-b5e7-a14e1d8109d6",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Kenzie Benedict Simanjuntak",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-11-11",
+    "nama_ibu_kandung": "Sintong Mangkirim Napitupulu",
+    "nik": "1210011111130001",
+    "nisn": "0131111539",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "3fce3fcb-e0f6-4157-9fd9-dc10837e7134",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "James Widjaya",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-10",
+    "nama_ibu_kandung": "Santy Salim",
+    "nik": "1271141003130004",
+    "nisn": "0137914851",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "68423c54-034f-41ac-8287-6189bc9b0dc9",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Jendy Ael Varo Anak Ampun",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-24",
+    "nama_ibu_kandung": "Roidah Br Sipayung",
+    "nik": "1210022409120001",
+    "nisn": "0121787974",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "164500aa-a761-4c7e-a87c-7b9fe3a62666",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Gerald Brayen Tarigan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-05",
+    "nama_ibu_kandung": "Sri Delli Br Sinulingga",
+    "nik": "1210090512120001",
+    "nisn": "0123328956",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "95094c4f-c529-4258-8774-76985bbba8f4",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Alif Josmex Pernando Sembiring Kembaren",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-03",
+    "nama_ibu_kandung": "Eldiyani Br. Sinulingga",
+    "nik": "1210010311120002",
+    "nisn": "0123189281",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "89dd9999-ab13-4b2c-8806-b6b410f87019",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "ADRIEL AFDA SIREGAR",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-21",
+    "nama_ibu_kandung": "LENNY TAPSELINA SARAGIH",
+    "nik": "1210092105130001",
+    "nisn": "0139643273",
+    "last_update": "2025-11-29T12:39:04.153000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "82f8672e-1d06-4074-a12d-9a2e7e8d85e9",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Olivia Ong",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-10-02",
+    "nama_ibu_kandung": "Ely",
+    "nik": "1210014210130003",
+    "nisn": "0139143419",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "72713085-5d81-44fc-89ca-30a8ea3a34fc",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Jonathan Evan Manuel Siagian",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-01-26",
+    "nama_ibu_kandung": "Irma Sitorus",
+    "nik": "3174022601131001",
+    "nisn": "0139484571",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "850780c1-7179-4706-8699-820d2d7355fb",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "ANGGUN ABIGAIL TAMBUNAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-14",
+    "nama_ibu_kandung": "DELIMA SARI",
+    "nik": "1210025403130004",
+    "nisn": "3139862112",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "78579dfe-25e1-4fc3-945d-a63c0ab82e0b",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "ELIXEZAR CHRIO SITUMORANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-03",
+    "nama_ibu_kandung": "ROSMAIDASINAGA",
+    "nik": "1271120303130001",
+    "nisn": "3135036208",
+    "last_update": "2025-12-20T05:28:41.773000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "a2818c5b-5c6a-4a9c-a4e8-046abc7fdc0e",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Sheila Queen Lot Siburian",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-12",
+    "nama_ibu_kandung": "Tiurma Erawati Simamora",
+    "nik": "1210015210120001",
+    "nisn": "0127116348",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "ff44b115-5ba1-4296-a844-1492b111c801",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "FIONA CHRISTY LUMBANTOBING",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-09",
+    "nama_ibu_kandung": "ROSLINER BR LUBIS",
+    "nik": "1210084903130002",
+    "nisn": "3131821630",
+    "last_update": "2025-04-25T22:24:48.027000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e8a52be2-15e8-440c-ba16-d489ff65dfba",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Vilfran Abednego Silalahi",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-06-21",
+    "nama_ibu_kandung": "Emma Imelda Sefriyanti Sinaga",
+    "nik": "1222032107130004",
+    "nisn": "0138581452",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "9d34b4c5-cbb1-4730-ad04-d2729113d9ac",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Jocelyn Octariza Naibaho",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-10",
+    "nama_ibu_kandung": "NURHAIDA SITORUS",
+    "nik": "1210085010120002",
+    "nisn": "3129219423",
+    "last_update": "2025-10-03T10:32:06.620000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "b4206cee-eb3c-47cb-b00e-78eb804d8242",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Richard Kenzy Naruto Situmorang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-28",
+    "nama_ibu_kandung": "Evalina Simanjuntak",
+    "nik": "1210092803130001",
+    "nisn": "0138921990",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d84528b3-a3cf-455a-8bcd-7f30db970bd6",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "ROIDA MEIVALIA BR SIMANJUNTAK",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-12",
+    "nama_ibu_kandung": "NETTY MARLINA PURBA",
+    "nik": "1210025205130003",
+    "nisn": "0138422767",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "05804b63-7383-4cae-b871-21f083107c20",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Tongam Silitonga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-06-17",
+    "nama_ibu_kandung": "Lely Diana Br Simanjuntak",
+    "nik": "1210021706130001",
+    "nisn": "0137459671",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "68e85d7a-4a4f-4aba-9058-051faf025131",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "JERICHO VANDER LIM",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-22",
+    "nama_ibu_kandung": "HERLINA",
+    "nik": "1275032211120001",
+    "nisn": "0129159463",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e5269901-c143-464c-b3a0-e0cd236b48a8",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Deryl Rozerio Naibaho",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-02-03",
+    "nama_ibu_kandung": "Nurintan Anastasya Sianipar",
+    "nik": "1210010302130001",
+    "nisn": "3135961305",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f9702e29-9db7-4108-9f4e-f93cf26feb63",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Karuna Putra Selamat",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-01-07",
+    "nama_ibu_kandung": "Maria",
+    "nik": "1210010701130001",
+    "nisn": "0139660904",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c7fe8ea9-8db6-43ad-8a8e-98305b1a5251",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Marina Nababan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-11-04",
+    "nama_ibu_kandung": "Marlina Haro Munthe",
+    "nik": "1210024411120002",
+    "nisn": "0121286574",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f5a522bb-1afd-4409-9723-972b6cb09208",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Felesia Cristabel Sinaga",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-31",
+    "nama_ibu_kandung": "Junita Fitriya Sihaloho",
+    "nik": "1210093105130002",
+    "nisn": "0131036329",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "85e57a73-4e42-4e5e-90ef-07852fb63467",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "CRIS FIORENZA MUNTHE",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-09",
+    "nama_ibu_kandung": "DESIMA HUTAPEA",
+    "nik": "1210094910120001",
+    "nisn": "3127283902",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "7d4a152e-358e-42b7-baeb-8ce76a837dfb",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Lolo Eden Putra Padang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-14",
+    "nama_ibu_kandung": "Gabe Risma Manurung",
+    "nik": "1222011411120001",
+    "nisn": "0121234418",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d9762692-c5d6-4474-b321-f1b1bf8032f7",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Meta Sari Halawa",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-15",
+    "nama_ibu_kandung": "Filisia Giawa",
+    "nik": "1210015510120001",
+    "nisn": "0121268740",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "22b6ee34-946d-42df-bf0e-89f436ee6515",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "Hosea Hugo Marpaung",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-08-09",
+    "nama_ibu_kandung": "Mindo Jernida BR Tambunan ",
+    "nik": "1210010908110004",
+    "nisn": "0114284595",
+    "last_update": "2025-12-19T08:51:07.707000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "51d5344c-f086-48ed-80ee-adef4e8c42bc",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "NORA MARIANA SIDAURUK",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-09-13",
+    "nama_ibu_kandung": "LINDA BR SIHOMBING",
+    "nik": "1210095309120001",
+    "nisn": "3136028181",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f2a074bb-feb4-4b51-baad-78a4f34e55d5",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Irena Cristabel Valerie Sirait",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-28",
+    "nama_ibu_kandung": "Lindsa Elvina Lumban Tobing",
+    "nik": "1210026805130001",
+    "nisn": "3135737596",
+    "last_update": "2025-05-05T16:30:11.403000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c6b01c2f-a6ce-4176-ab08-caaee0aeaf3c",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "ALVARO FELIX NADAPDAP",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-10-10",
+    "nama_ibu_kandung": "SRY ENDANG HERAWATI SIMATUPANG",
+    "nik": "1209121010120001",
+    "nisn": "3125368720",
+    "last_update": "2025-05-26T12:29:57.150000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d0082d1b-15ec-4aae-a125-54c65f18f9bc",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "MANUARA YEHEZKIEL HUTAPEA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-24",
+    "nama_ibu_kandung": "TIUR MARIANA HUTAGAOL",
+    "nik": "1210092408120002",
+    "nisn": "0122759319",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.a",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "a1246ef5-62f5-44cd-a6d4-4b28f5479fb4",
+    "rombongan_belajar_id": "63c950ab-9625-4b9e-8ede-bc5efe9e73e7"
+  },
+  {
+    "nama": "JEFRY",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-08-30",
+    "nama_ibu_kandung": "JULI",
+    "nik": "1210013008110001",
+    "nisn": "0119488832",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "bb634779-bf70-47b4-83e1-3374515f27b5",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Davinia Acelin Sipayung",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-10-31",
+    "nama_ibu_kandung": "RAPIDO FITRIA HARTATI  SIAHAAN",
+    "nik": "1371047110130001",
+    "nisn": "0137731268",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "4f1cd329-c312-4afc-b408-9d8d153cf20c",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "ZASKIA MARPAUNG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-09-19",
+    "nama_ibu_kandung": "EFI SITANGGANG",
+    "nik": "1403135909120002",
+    "nisn": "0122891710",
+    "last_update": "2025-12-08T08:23:38.370000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "b3dc7ab6-e1ac-4e95-bbf2-2243abb2cdc0",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Mikha Olivia Situmorang",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-05-05",
+    "nama_ibu_kandung": "Amalia Natalia",
+    "nik": "1210024505120002",
+    "nisn": "0125091468",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7535c2ee-d413-42b0-a7ca-13abb7405876",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "DIANA TERESIA SIMANUNGKALIT",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-09-20",
+    "nama_ibu_kandung": "ELIDA TIURMAWATI SITUMORANG",
+    "nik": "1210026009100001",
+    "nisn": "0102206866",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "3f76ac1b-b46a-46b4-9a2b-2e704606d977",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "SEAN EXCEL TIMOTI MATONDANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-04-12",
+    "nama_ibu_kandung": "DOR TAMA BR. SIAHAAN",
+    "nik": "1222011204110003",
+    "nisn": "0114486781",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "7e994494-25ac-47a8-9f9e-2eb55ff37edf",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Kristian Sihotang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-12-12",
+    "nama_ibu_kandung": "Lasmaria Br Sibarani",
+    "nik": "1210091212100003",
+    "nisn": "0103592687",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "fc0638d0-402f-438f-95b4-33b5f0bcec9b",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "NESYA HASIANNA PANGARIBUAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-01-15",
+    "nama_ibu_kandung": "SYURYANI SIMARMATA",
+    "nik": "3279015501110001",
+    "nisn": "0117026229",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "16c67743-6ef5-4c29-8248-33d4af48d7a9",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "MAYLANIE ALEXA PURBA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-10-11",
+    "nama_ibu_kandung": "ERLIDA WATI BR PANJAITAN",
+    "nik": "1210095110100001",
+    "nisn": "0107074356",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "a8c9bbc4-7f44-4db2-a60d-39903dd5a43c",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "GABRIEL GERALDO NAINGGOLAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-11-03",
+    "nama_ibu_kandung": "HERMIAN TAMBA",
+    "nik": "1210190311100001",
+    "nisn": "0102541588",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "74e7b1ce-f2d8-4bd9-9ff7-467870b77187",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "DWITA PANDIANGAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-01-25",
+    "nama_ibu_kandung": "WENNY SIHOMBING",
+    "nik": "1210016501110002",
+    "nisn": "0112535445",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "b3d24cfb-1996-4bff-aeea-4651bda68019",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "LORENZO SIRINGO-RINGO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-03-03",
+    "nama_ibu_kandung": "MELDA OCTARINA SINAGA",
+    "nik": "1371100303110001",
+    "nisn": "0117477715",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "3ee89b06-5176-4471-a01d-2b4548340916",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "VALDIANTHA YANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-06-06",
+    "nama_ibu_kandung": "FARIDAH",
+    "nik": "1210010606110002",
+    "nisn": "0114370338",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "36c1dcfc-1a9f-429e-bca7-5a36a4294e62",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Yolanda Hanani Br Purba",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-23",
+    "nama_ibu_kandung": "Damaida Br Ginting",
+    "nik": "1210096310110002",
+    "nisn": "0115971767",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d26d45f9-c2d3-4a42-8adf-2db8da4b92fc",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Nicholas Malo Marbisuk Sianturi",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-30",
+    "nama_ibu_kandung": "REHNAULINA BR SEMBIRING",
+    "nik": "1207023008120008",
+    "nisn": "0122010485",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "f9ebf561-6527-4798-acdb-6586d8786df5",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "SHINE JOLI SIREGAR",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-08-15",
+    "nama_ibu_kandung": "LINA ROSMAWATI",
+    "nik": "1210011508120001",
+    "nisn": "3128077306",
+    "last_update": "2025-12-16T09:26:43.400000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "26787f46-e299-48d3-98a0-889ba1380860",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Pernando Halim",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-06-10",
+    "nama_ibu_kandung": "Mery",
+    "nik": "1274011006140002",
+    "nisn": "0148272845",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "42cab20e-a8c9-4b12-a17f-ebc9f5ec1ff2",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Cesilya Florence",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-02-19",
+    "nama_ibu_kandung": "Indah",
+    "nik": "1209195902130002",
+    "nisn": "0134826397",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "093cdf68-3bab-44e6-9474-94b9331adef9",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Lionel Perdana Halim",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-06-29",
+    "nama_ibu_kandung": "Siti",
+    "nik": "1210012906100002",
+    "nisn": "3109367890",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "0a956899-e98b-407e-9e98-c5ac7da41285",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Sonya Ratu Viola Marbun",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-06-02",
+    "nama_ibu_kandung": "Siska Nerita Silaban",
+    "nik": "1210024206130001",
+    "nisn": "3134490409",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "6f09f053-e4ae-41c9-a4f5-9c6424176912",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Leony Anastasya Fernanda",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-09-08",
+    "nama_ibu_kandung": "Lydia Novita Siahaan",
+    "nik": "1210014809130001",
+    "nisn": "3134640151",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "dd0a1a2e-3ca3-418f-b6f4-1e9e3dd05758",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Daffin Fi delis Pakpahan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-04-18",
+    "nama_ibu_kandung": "Risma Ria Angelia Purba",
+    "nik": "1223041804130001",
+    "nisn": "0138162819",
+    "last_update": "2025-02-10T16:30:16.030000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "658b327a-9d89-44de-b239-4919a48cbf08",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Alexandra Jolie",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-07-12",
+    "nama_ibu_kandung": "Lily",
+    "nik": "1209205207131001",
+    "nisn": "0133756653",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "92472be1-4f11-4bd1-b161-35d80c8a4b26",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "JONATHAN DARLENE WANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-06",
+    "nama_ibu_kandung": "MELATY",
+    "nik": "1210010612120001",
+    "nisn": "3128702301",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "26c7a857-d53d-4917-aa61-d6d17d5820e1",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "ELIESER MISPA NATALIA BR. SEMBIRING KEMBAREN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-12-25",
+    "nama_ibu_kandung": "ELDIYANI BR. SINULINGGA",
+    "nik": "1210016512100002",
+    "nisn": "0106048965",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "6f2db48d-0604-4ae2-a044-74da3c9704bf",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "HILMAN GRACETO SAW SARAGIH",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-27",
+    "nama_ibu_kandung": "NAOMI REBECA NAIBAHO",
+    "nik": "1210092703130003",
+    "nisn": "0131713387",
+    "last_update": "2025-10-24T21:06:47.403000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "6c6ddae2-de61-493a-939c-cc12b47563f4",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "IRFAN FIRZI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-20",
+    "nama_ibu_kandung": "MEGAWATI MARPAUNG",
+    "nik": "1210012012120003",
+    "nisn": "0125497424",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c269dc58-8f1b-4a5b-9b4b-a0e2bc523332",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "MILLION KARMELA SITUMORANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-11-05",
+    "nama_ibu_kandung": "EVALINA SIMANJUNTAK",
+    "nik": "1210094511110001",
+    "nisn": "0116567414",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "bd522e8d-7aab-46b7-9012-7ea5fdcf281e",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Shaldon Algrensan Sinaga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-04",
+    "nama_ibu_kandung": "Ita Agusta Bangun",
+    "nik": "1272060403130001",
+    "nisn": "0138810265",
+    "last_update": "2025-05-11T21:08:25.067000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e0c0bdb0-6aa8-4d2c-8bce-d39ef4e6a09e",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Nayla Avisha Tarigan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-04-11",
+    "nama_ibu_kandung": "Elpianti Ekavinta",
+    "nik": "1210145104120001",
+    "nisn": "0129120845",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "cae27908-5af8-442e-9531-8bd3646bb687",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "NOVANTRI HASIAN PASULADRA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-23",
+    "nama_ibu_kandung": "Sulastri Br Sitorus",
+    "nik": "1210092311110002",
+    "nisn": "0115644221",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "88314ffb-6f5a-4ef6-8ecd-9b99006110f2",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "JOEL MARTIN PAKPAHAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-04-11",
+    "nama_ibu_kandung": "TIMA WARLIN BR SINAGA",
+    "nik": "1210011104110002",
+    "nisn": "0114271417",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "36aab800-4740-484e-925e-9ee8770376c2",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "MARIA PANGGABEAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-06-15",
+    "nama_ibu_kandung": "EKA MARTINA PASARIBU",
+    "nik": "1222035506110005",
+    "nisn": "0116254490",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "12f420e2-edbc-46d0-a56d-a81970df1a6b",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Grevaldo Sinaga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-01-10",
+    "nama_ibu_kandung": "Yunita Certiana Br Simarmata",
+    "nik": "1210011001110004",
+    "nisn": "0114632440",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "30a662f0-4350-4e57-a413-b27e7448b81a",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "JOSIA SIAHAAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-05-14",
+    "nama_ibu_kandung": "LISDA BR SILITONGA",
+    "nik": "1210011405120003",
+    "nisn": "0125032094",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "b60194ed-6753-4f06-95e5-c86c522ed2d5",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "RUTH CINTA SARI SIANTURI",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-05-24",
+    "nama_ibu_kandung": "MEGAWATI SIMANJUNTAK",
+    "nik": "1210086405110001",
+    "nisn": "0116234082",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d538323e-c188-4539-9fe3-d10957e713b6",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "RACHELLE KIEW LIANNO",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-08-06",
+    "nama_ibu_kandung": "SHERLY",
+    "nik": "1210014608110001",
+    "nisn": "0111888000",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "615603df-0b22-4278-a7d6-d970d3ded548",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "EPRIL RAISYA BR SEMBIRING MELIALA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-06-15",
+    "nama_ibu_kandung": "Elviyanti Br Sinulingga",
+    "nik": "1210014504110008",
+    "nisn": "0113774849",
+    "last_update": "2025-10-02T15:30:27.990000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "069c3982-a617-4b1e-93c2-da2138353e36",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "RIZKY IMANUEL GRACENO NABABAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-01-29",
+    "nama_ibu_kandung": "DEVY OCTAVIA SIAGIAN",
+    "nik": "1222032901110004",
+    "nisn": "0115033299",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "c513a097-1218-4da7-8d64-db6bfef0db0f",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Theresia Queenina Marito Lumbanraja",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-27",
+    "nama_ibu_kandung": "Rosdewi Hutasoit",
+    "nik": "1210016703120004",
+    "nisn": "0125325224",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "b61b95c5-7690-4bfd-969c-e608af168bd0",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "REYNALDO BRYAN CARLOS HUTABARAT",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-06-02",
+    "nama_ibu_kandung": "ENDANG ERPINA SITORUS",
+    "nik": "1201030206110001",
+    "nisn": "0119040738",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "29d2e630-25d2-4284-b9df-83287965f982",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "YOHANNES SIREGAR",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-01",
+    "nama_ibu_kandung": "RISMA ENDANG BR HOTANG",
+    "nik": "1210080112110001",
+    "nisn": "0116840985",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "32dd00ed-c10a-43d3-a338-83c8e17bfad2",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Riszky Yeremia Marbun",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-04",
+    "nama_ibu_kandung": "Rosmida Sitorus",
+    "nik": "1210010411110003",
+    "nisn": "0117023735",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "848497d7-1a72-44fc-891a-85c5d9492cb1",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Ruth Novalina Br Siahaan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-11-06",
+    "nama_ibu_kandung": "Ika Ria Supriana Manurung",
+    "nik": "1210014611110001",
+    "nisn": "0111127262",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7c6f0ab1-c1af-4936-bab5-9ee658ad8bdb",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "ABRAM ABYGAEL PANGGABEAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-05-25",
+    "nama_ibu_kandung": "JONE MORENA SIREGAR",
+    "nik": "1210022505110001",
+    "nisn": "0119402918",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "fe82dabf-3915-4710-ac99-a8e2caaf3598",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "RAPHAEL GURUSINGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-11-26",
+    "nama_ibu_kandung": "LERAWATY",
+    "nik": "1272032611130001",
+    "nisn": "0131621810",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d42f9eb6-b516-4332-81f1-f007add1b455",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "YEMIMA FEODORA ARITONANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-13",
+    "nama_ibu_kandung": "Eva Yunita Sihombing",
+    "nik": "3573045303120002",
+    "nisn": "0123581576",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "bf905a9a-7d92-441f-8429-351fc0abcad8",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "RENI SINTAULI SILAEN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-04-19",
+    "nama_ibu_kandung": "Rosmauli Simanjuntak",
+    "nik": "1210095904110002",
+    "nisn": "0113222896",
+    "last_update": "2025-10-02T15:30:27.990000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "ba6a9ced-e408-44a0-8dd8-f2b98f232e56",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Rojer Bronson Sianturi",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-08",
+    "nama_ibu_kandung": "Rosnida Simbolon",
+    "nik": "1210080809120001",
+    "nisn": "3121112611",
+    "last_update": "2023-03-16T16:19:31.793000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f082e9d3-4c61-494d-8bd7-ef238695e333",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "RERA DESCAR SITORUS",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-09-27",
+    "nama_ibu_kandung": "IMERTA PASARIBU",
+    "nik": "1210012709110001",
+    "nisn": "0113570308",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "955ccf53-dabd-47c1-bb51-4036d47878ad",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "MANUEL AGUSTINUS SILITONGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-08-29",
+    "nama_ibu_kandung": "NORA NOVANA BR NADEAK",
+    "nik": "1222022908130002",
+    "nisn": "0138566549",
+    "last_update": "2025-10-02T09:41:46.363000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "cbb125b2-1a17-4bcf-9f73-619cef5cdace",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "OTNIEL YEARIM",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-03-23",
+    "nama_ibu_kandung": "SUSANA DJUWITA",
+    "nik": "1210012303100002",
+    "nisn": "0102073037",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "8c34431f-6dcb-4d98-adcc-5afe12ed8082",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Jhero Revalsa Sembiring meliala",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-03-31",
+    "nama_ibu_kandung": "Elviyanti br Sinulingga",
+    "nik": "1210013103120005",
+    "nisn": "0127186229",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "0c27c952-6ec1-4c53-a348-dd32f3318643",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "VIOUSHE SIMAMORA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-08-03",
+    "nama_ibu_kandung": "ERNITA SARAGI",
+    "nik": "1210074308110001",
+    "nisn": "0113862597",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "9f992754-cc24-4c9d-9caf-d88b6dfd73fb",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "AMANDA KIMBERLY SITEPU",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-01-09",
+    "nama_ibu_kandung": "HETTY BR PANJAITAN",
+    "nik": "1210014901130004",
+    "nisn": "3136784771",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "153a7a38-4895-4fe7-a141-5517b600a4c8",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "Geovany Lumban Gaol",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-05-03",
+    "nama_ibu_kandung": "Risna Marlina Tambunan",
+    "nik": "1771054305110001",
+    "nisn": "0116382718",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "7e7e7cc4-986d-4e97-851b-333e868c4bae",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "ENRIQUE LOUISE TAN VIGO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-05-10",
+    "nama_ibu_kandung": "RENI ANDRIANI",
+    "nik": "1210011005110002",
+    "nisn": "0119326061",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "29ae2c4c-04c4-491f-b2cd-0bd1dcf47834",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "YULI KASIH BR SITINDAON",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-04-22",
+    "nama_ibu_kandung": "HERLI DERITA SITORUS",
+    "nik": "1210026204100004",
+    "nisn": "0102993425",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "bf8462f5-65d0-4b61-91f3-bc83655396db",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Lukas Simanungkalit",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-10-06",
+    "nama_ibu_kandung": "Dian Kristania Manurung",
+    "nik": "1271020610110001",
+    "nisn": "0115954870",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "789f0b2b-8c12-4020-ba6d-f5e81fd523e0",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Diego Lambok Sirait",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-04-22",
+    "nama_ibu_kandung": "Marlina Dabukke",
+    "nik": "1210012204110004",
+    "nisn": "0112870498",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7996cf55-811d-44b7-9be8-d08f27a3f754",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "ABDY DENNIEL SIMANJUNTAK",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-08-08",
+    "nama_ibu_kandung": "MELDARUS MERLIN BR SIAHAAN",
+    "nik": "1210010808100002",
+    "nisn": "0106028638",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "cda30a50-de98-48d8-afcd-c562c6bba40b",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "ENRYCO DOLI NAPITUPULU",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-05-29",
+    "nama_ibu_kandung": "PANGOMEAN BR TAMBUNAN",
+    "nik": "1210022905110001",
+    "nisn": "0116256783",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.a",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "695ee5e1-9999-42cd-9006-75a0f7a3fea7",
+    "rombongan_belajar_id": "9293acf6-91a2-4754-aaee-9686cca21854"
+  },
+  {
+    "nama": "Reflin Aline Gladys",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-22",
+    "nama_ibu_kandung": "Repina Sianipar",
+    "nik": "1210096203130002",
+    "nisn": "0136531226",
+    "last_update": "2024-06-11T11:26:36.627000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "40f78c6a-023c-4eed-a244-52ab38093d60",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "KANIA MARPAUNG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-11-22",
+    "nama_ibu_kandung": "EFI SITANGGANG",
+    "nik": "1403136211130002",
+    "nisn": "0131490269",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.b",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "07f86fc8-1822-47f2-b7bf-dba8efe9dabd",
+    "rombongan_belajar_id": "1a836a44-9e06-4092-be17-05b697689d26"
+  },
+  {
+    "nama": "KENZIO ABIVARA MORANTA SIMAMORA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-03-27",
+    "nama_ibu_kandung": "DONA YOSEVA SIAHAAN",
+    "nik": "1210022703120001",
+    "nisn": "0128746502",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "897f3719-b8ec-4edb-9ccd-01c84124588f",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Nicholas Orlando Hutajulu",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-02",
+    "nama_ibu_kandung": "Anita Simanjuntak",
+    "nik": "1210140202120001",
+    "nisn": "0122303119",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "d8b58cbf-90ef-4024-a2cf-03cb2e9ea0fb",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Andryan Natanael Nainggolan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-10-21",
+    "nama_ibu_kandung": "Teresia Natalia Tampubolon",
+    "nik": "3173082110111013",
+    "nisn": "0111146993",
+    "last_update": "2023-03-16T16:19:31.793000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "08b1c905-a9f9-41aa-bffd-038efaae44bb",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Zio Mayriz Alphareo Sihaloho",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-05-01",
+    "nama_ibu_kandung": "Irene br Situmeang",
+    "nik": "1210010105120001",
+    "nisn": "0129750613",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "53bd2375-323e-4b90-9b21-05b1607e5d21",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Gomgom Rafael Naibaho",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-01-09",
+    "nama_ibu_kandung": "Leroy Sitanggang",
+    "nik": "1210090901110001",
+    "nisn": "0119223976",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d3284036-7f88-4567-a1bc-076c05009555",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Christian Natanael Aritonang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-12-20",
+    "nama_ibu_kandung": "Magdalena Simanullang",
+    "nik": "1222022012100001",
+    "nisn": "0101906107",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "15e7cae9-2850-4b69-83f2-08ecf67a8d37",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "INDRI HOLLYNESA HASUGIAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-11-02",
+    "nama_ibu_kandung": "ADE IRMA SURYANI SINAGA",
+    "nik": "1210024211110002",
+    "nisn": "0118542825",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7b52be5e-a174-4fcc-b9bc-0376b892b55c",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "KEVIN ALFARIZI NAPITUPULU",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-09",
+    "nama_ibu_kandung": "Mayasari Br Pasaribu",
+    "nik": "1210010912110004",
+    "nisn": "0116074446",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "a108fa35-ba9e-4b2b-9be6-62edc9d1b7ca",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "HANNA VALENSIA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-07-12",
+    "nama_ibu_kandung": "DEWI SARTIKA",
+    "nik": "1210015207110001",
+    "nisn": "0119958838",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "956521f5-9cb2-4d45-b0ac-0cd8ddf4d3ca",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "JUSTIN TIMOTI SIBARANI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-02-28",
+    "nama_ibu_kandung": "RUSTINA MEGAWATI",
+    "nik": "1210092802110002",
+    "nisn": "0111548647",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "1cd26d63-29c7-4e18-b609-0da5426595da",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Anggi Ulina Sinaga",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-06-15",
+    "nama_ibu_kandung": "Niastina Butar Butar",
+    "nik": "1222015506120001",
+    "nisn": "0124477938",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "88a8721d-5b9f-4287-b935-1d3ca3325b0a",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "BENHUR SILITONGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-24",
+    "nama_ibu_kandung": "Cahaya Marlina Tampubolon",
+    "nik": "1210092408120003",
+    "nisn": "0122999350",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "a4e055fb-058a-4e12-9c65-2406a7273313",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "EDWARD FALERIO MUNTHE",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-05-11",
+    "nama_ibu_kandung": "DESIMA HUTAPEA",
+    "nik": "1210091105110001",
+    "nisn": "0112336046",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "fc7f0c20-b381-4618-b141-26ab7337f21e",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Chalysta Queen Skolastica Datubara",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-07-17",
+    "nama_ibu_kandung": "Erfiana Singarimbun",
+    "nik": "1206015707120002",
+    "nisn": "3124615605",
+    "last_update": "2025-09-19T07:40:50.640000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7f8f5b17-168d-4fe9-bfcf-270b61842439",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "GRATYA SILVI ARITONANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-01",
+    "nama_ibu_kandung": "EVI KHEIRANI MANURUNG",
+    "nik": "1216074110110001",
+    "nisn": "0117493450",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "68f39cbf-857a-4f93-8faf-285735723886",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "JONA GETZHA SADAT SIRAIT",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-06-18",
+    "nama_ibu_kandung": "NETTI HERAWATI LUBIS",
+    "nik": "1210091806110001",
+    "nisn": "0117605183",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "9472079a-1e8f-4793-b206-2e8176d8d370",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Rafael Kent Silaban",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-01",
+    "nama_ibu_kandung": "Rismawaty",
+    "nik": "1223060109120001",
+    "nisn": "0126219273",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "88703990-f080-43ab-9a65-2efa3560a2f1",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Alusi Simanungkalit",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-11",
+    "nama_ibu_kandung": "Pemmi Manurung",
+    "nik": "1210011102120005",
+    "nisn": "0129152972",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7c8bd613-f0cd-4f06-8ef8-36b8ccee7008",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Paskah Andreas Silalahi",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-04-09",
+    "nama_ibu_kandung": "Riama Sitanggang",
+    "nik": "1210090904120001",
+    "nisn": "0123324266",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "c67d3e94-ffd4-4650-b70b-3bb98ea36c0e",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Evander Wijaya",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-03-02",
+    "nama_ibu_kandung": "Juliana",
+    "nik": "1223060203120003",
+    "nisn": "0125152784",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "ff774188-ea69-4228-a9fc-3fcc850108d6",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "JACOB DANIEL DAME CHOWSKAMAMORA HALOHO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-18",
+    "nama_ibu_kandung": "TAMAULINA BR SIMARMATA.S.SOS",
+    "nik": "1271211802120001",
+    "nisn": "0121235835",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "93e066c1-7444-45a8-8b4d-436029f07f42",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Putri Turnip",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-04-26",
+    "nama_ibu_kandung": "Sion Anita Rumada Lumbantobing",
+    "nik": "1210096604120003",
+    "nisn": "0126897930",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "ebe89898-7a92-414e-a1a3-44d8ec4f3879",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "FRIZILIA STELA FIRSTY",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-05-13",
+    "nama_ibu_kandung": "VANNY ERLIAN BR NABABAN",
+    "nik": "1210015305110001",
+    "nisn": "0119402252",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "925b96dd-3120-43f3-8c9e-473ddea7dbbb",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Cindy Tananta Br Simarmata",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-11-14",
+    "nama_ibu_kandung": "Saudurma Br Sirait",
+    "nik": "1210095411110004",
+    "nisn": "0113876718",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9e8535c6-5b4b-440b-84de-4bd147f498f5",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Clara Vita Febrianty Siboro",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-02-23",
+    "nama_ibu_kandung": "Lenni Riama Pangaribuan",
+    "nik": "1210146302120001",
+    "nisn": "0125776057",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "3ef51aa1-19c3-4b7a-b8b1-524e70331d7a",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "EDMUND CRISTIAN ANGELO SIBARANI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-12-08",
+    "nama_ibu_kandung": "HOSIANNA SIMARMATA",
+    "nik": "1218040812100002",
+    "nisn": "0104695590",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "92f674e8-d297-4313-82b7-5212a1597e66",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "ROONEY BRADLEY",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-03-14",
+    "nama_ibu_kandung": "NOVARIA SAGITA",
+    "nik": "1210011403120001",
+    "nisn": "0121886485",
+    "last_update": "2025-01-25T16:31:40.570000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "bff1791a-e890-4d59-8f02-567de6523122",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Stella Br Sirait",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-01-12",
+    "nama_ibu_kandung": "Lenni Asima Br Manurung",
+    "nik": "1210015201120001",
+    "nisn": "0121502072",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "093e60be-7401-4e76-ac1a-2c6449a6e2f2",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Stevanus Sitindaon",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-11-20",
+    "nama_ibu_kandung": "Rosmaita Br Simarmata",
+    "nik": "1210092011100001",
+    "nisn": "0105626468",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "3ce2877b-2265-410d-bb99-5b6d93bffd2c",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Michelle Maria",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-07-19",
+    "nama_ibu_kandung": "Epi Tamala",
+    "nik": "1210015907120002",
+    "nisn": "0127865123",
+    "last_update": "2024-11-07T12:49:48.430000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "f4385d68-2e0b-4a48-b3a7-2f7fddd27f93",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Gereth Diego Marco",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-03-05",
+    "nama_ibu_kandung": "Elsa Juliana Sinurat",
+    "nik": "1210090503120001",
+    "nisn": "0127157682",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "bdbf1ed8-8296-426c-9765-603a62de98c2",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Ias Dianoia Sagala",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-11-01",
+    "nama_ibu_kandung": "LAURA FEBRONA MARIANI",
+    "nik": "1223074111120002",
+    "nisn": "3120146955",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "cfebc836-9e8b-440e-9b45-3035de8356cf",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Immanuel Sarito Situmeang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-14",
+    "nama_ibu_kandung": "Merli Junita Fanensi Tampubolon",
+    "nik": "1210011412110001",
+    "nisn": "0112774054",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9290dce3-2a49-44a9-bbe9-63f31723e4d1",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Yosua Wesli Putra",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-10",
+    "nama_ibu_kandung": "Selvia",
+    "nik": "1277021011110003",
+    "nisn": "0117726473",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "41a5574a-ed93-45d1-ac35-642889c9b750",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "YOHANA GRACIA PUTRI",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-01-11",
+    "nama_ibu_kandung": "JULIYANA NAINGGOLAN",
+    "nik": "1223045101120001",
+    "nisn": "0121197388",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "52cba998-585b-46b1-8618-6815e429582d",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "EZY VINSHIA RENATA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-01-26",
+    "nama_ibu_kandung": "Juliana",
+    "nik": "1210146601110001",
+    "nisn": "0118498250",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "b26f64f6-60d0-40d2-8027-3554e102258a",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "JELITA LESTARI BR SINAGA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-05-06",
+    "nama_ibu_kandung": "WARITA BR SILALAHI",
+    "nik": "1218094605110001",
+    "nisn": "0112188469",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "f1f95f50-cdc5-42ea-997a-6d15cd327a8f",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "TIFFANY ELISABETH SITINDAON",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-12-27",
+    "nama_ibu_kandung": "MARTHA CHRISNAWATY SIAGIAN",
+    "nik": "7471096712110001",
+    "nisn": "0112905780",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "eb77d05b-02d6-42d4-b5d2-76985216388e",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Abigail Jes Putrahas Nadeak",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-01-25",
+    "nama_ibu_kandung": "Juita Astri Ivani Sinaga",
+    "nik": "1506052501120001",
+    "nisn": "3120266918",
+    "last_update": "2023-03-16T16:19:31.793000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "42e91908-4c39-40ac-9092-7f5385b9b08c",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "TARI DABUKKE",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-12-29",
+    "nama_ibu_kandung": "MELFINA EFRIDA SIMAMORA",
+    "nik": "1210016912110003",
+    "nisn": "0112118128",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "690fc570-1f7d-470f-8315-801d5259c779",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Hizkia Owen Candyto Hutagalung",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-16",
+    "nama_ibu_kandung": "Dewi Fransiska Simangunsong",
+    "nik": "1208091612110001",
+    "nisn": "0113994107",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9b95fe19-d9d9-4a85-b223-80219afd59f9",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Beria Jaya Manurung",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-05",
+    "nama_ibu_kandung": "Eri Pridiana Pasaribu",
+    "nik": "1210090507110003",
+    "nisn": "0116539344",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "191ed2d2-20b8-4fe7-ba81-4248e48cbd6a",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "ANTON STEVEN JONATA SITORUS",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-09-26",
+    "nama_ibu_kandung": "EMMA TAMPUBOLON",
+    "nik": "1210012609110002",
+    "nisn": "0117043908",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "78dd427e-dcc7-4fac-bc26-855c81f919c3",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "GLENN STEVEN SIMORANGKIR",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-04",
+    "nama_ibu_kandung": "IRA NYATALIA BR SIBURIAN",
+    "nik": "1223060408120002",
+    "nisn": "0121800563",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "739e0eda-64e7-4dc1-ac5f-889d65c54812",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "YOHANNES WESLI PUTRA CIA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-11-05",
+    "nama_ibu_kandung": "SELVIA",
+    "nik": "1277020511100002",
+    "nisn": "0105408249",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "3afef1bc-61e7-44a5-9c2f-8c6b70ca35e4",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Jelita Putri Ivana Simanjuntak",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-18",
+    "nama_ibu_kandung": "Sondang Purba",
+    "nik": "1210015803120001",
+    "nisn": "0122352956",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "aec97be7-5e45-4846-aeb9-469f5e91d237",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Theo Karunia Sitinjak",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-06-04",
+    "nama_ibu_kandung": "Sinur Yuliana Marpaung",
+    "nik": "1212200406120001",
+    "nisn": "0125180261",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "f96fb49d-f082-4180-86f1-8d46b382c049",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Devinzio Natthanius Luigi",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-05",
+    "nama_ibu_kandung": "Malla Sri Ayu Anggita",
+    "nik": "1210010509120002",
+    "nisn": "0124573814",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "332c6ac9-b837-49c5-aacb-919e14a9d793",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Silvi Margaret Br Panggabean",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-03-14",
+    "nama_ibu_kandung": "Rosmauli Br Siahaan",
+    "nik": "1210095403110002",
+    "nisn": "0116586533",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "41046634-65da-4de7-a663-493e95f83f21",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Rodo Berkat Siregar",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-11",
+    "nama_ibu_kandung": "Dora Risda Simanjuntak",
+    "nik": "1210141102120001",
+    "nisn": "0126958553",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "ceae492d-ac04-4736-bb83-96a2056b390b",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Laurenzo Datosa Situmorang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-12-15",
+    "nama_ibu_kandung": "Rosida",
+    "nik": "1210011512100002",
+    "nisn": "0106634764",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "96a2da09-88be-402b-9023-4c2127f45a24",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "RIFKY TORANG DOLY SIJABAT",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-05-24",
+    "nama_ibu_kandung": "DEWI SARTIKA BR SIAHAAN",
+    "nik": "1210012405110005",
+    "nisn": "0118049018",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "254d382a-e8ed-47a3-8a9f-9a7f2801b8bd",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "STEVEN TIMOTHY SIRAIT",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-06-20",
+    "nama_ibu_kandung": "RISMA SINAGA",
+    "nik": "1210012006100001",
+    "nisn": "0106154966",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "59e8f3f3-30d5-4148-815f-9ceda5a9098c",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "DARIUS GABRIEL PARDOSI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-02",
+    "nama_ibu_kandung": "HENDRI YANI SINAGA",
+    "nik": "1210020211110004",
+    "nisn": "0113309718",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "18df03e2-8d56-4a03-96cc-a4521648ddda",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "IVANKA CRIST OKTALINA TAMBUNAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-30",
+    "nama_ibu_kandung": "EVA ROSDELIMA SINAMBELA",
+    "nik": "1210027010110002",
+    "nisn": "0119522318",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "b6ec6153-3720-408f-9079-a578852f7cbf",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Satrio Arya Pradana Sihombing",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-10-16",
+    "nama_ibu_kandung": "Elvi Junita Rajagukguk",
+    "nik": "1210091610100001",
+    "nisn": "0106805972",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "6419ddec-cddc-4632-8762-a5ed9dd3cd84",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Cinta Siagian",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-16",
+    "nama_ibu_kandung": "Rusmin Panjaitan",
+    "nik": "1220035610110003",
+    "nisn": "0116381711",
+    "last_update": "2024-08-02T23:00:54.057000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "924810e9-53ac-4f69-aa5b-5446c8210a95",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "RICHARD PRATAMA HUTABARAT",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-07-28",
+    "nama_ibu_kandung": "BUTET EVALINA",
+    "nik": "1223012807100001",
+    "nisn": "0104424290",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "877dac89-8f0b-416d-8605-b4b3a64da996",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "LOVELY SUSANTI SIMANJUNTAK",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-04-15",
+    "nama_ibu_kandung": "Suminar hutabarat",
+    "nik": "1210095504100001",
+    "nisn": "0106807677",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "ac49bdcd-4253-46cc-b9ea-b69b0ce025ab",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "YESIE MARGARETHA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-03-09",
+    "nama_ibu_kandung": "ANITA HARTATI",
+    "nik": "1212014903110003",
+    "nisn": "0114648821",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "fd49f5f4-d300-4c89-94e0-bc4a4b3de870",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "RICHSAN PARLUHUTAN SIMATUPANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-03-31",
+    "nama_ibu_kandung": "LARISMA SITOHANG",
+    "nik": "1210013103110010",
+    "nisn": "0119965845",
+    "last_update": "2025-10-02T12:50:42.660000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "1273ab81-18f7-4b2d-a33f-c1b7ef455ae3",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "DANIEL PRATAMA SIMBOLON",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-10-09",
+    "nama_ibu_kandung": "Pestauli Nainggolan",
+    "nik": "1222040910110002",
+    "nisn": "0115544385",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7bc650b6-e4ba-45d3-9195-6096dbd25b55",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Felisha Agri Panggabean",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-06-21",
+    "nama_ibu_kandung": "Riris Tambunan",
+    "nik": "1210026106110001",
+    "nisn": "0118113192",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "c24b1c4b-0717-4c16-9e4e-c335ffe00889",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Arashel Gabriella Diva",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-05-26",
+    "nama_ibu_kandung": "Ellen Suzana Br Nababan",
+    "nik": "1210016605120002",
+    "nisn": "0124511533",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "76524090-6995-4f59-8595-c4e361ad6b1d",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Michael Thimoty Siregar",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-13",
+    "nama_ibu_kandung": "Dogma Napitupulu",
+    "nik": "1223061308120004",
+    "nisn": "0126810198",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "fda1d55c-03d0-4a12-8fb3-c9058eb8db2e",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "SHIDEEZHI ELVARETTA PAKPAHAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-03-03",
+    "nama_ibu_kandung": "SUSI KARTINI LUBIS",
+    "nik": "1210024303110003",
+    "nisn": "0115856175",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "f807b4bc-dfae-4e3b-85c4-65d67979ee31",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "STEWARD HALIM",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-09-30",
+    "nama_ibu_kandung": "HERIATY",
+    "nik": "1208233009110002",
+    "nisn": "0114850837",
+    "last_update": "2024-12-04T08:32:30.520000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "df059bdf-ca66-448e-bc41-cf91ba17c7d7",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Trian Mozes Hutagalung",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-01-04",
+    "nama_ibu_kandung": "Yohanna Suzita Br Simarmata",
+    "nik": "1210090401120004",
+    "nisn": "0121801903",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "506545ae-ad7b-4182-9005-d04ee8e65e97",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "MANUELA SITUMORANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-09-10",
+    "nama_ibu_kandung": "ERIKA DAMERIA SINAGA",
+    "nik": "1223015009120003",
+    "nisn": "0126532408",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "754d2242-b4e3-4d87-b389-d54d0d2b5ca0",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Stephanie Zefanya Dolok Saribu",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-02-02",
+    "nama_ibu_kandung": "Sihol Sri Yuliana Sinaga",
+    "nik": "1210014202120001",
+    "nisn": "0123120299",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "337b1f94-959e-4f80-a26d-d695a3289005",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "GABRIAN OWEN MEYER SINAGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-26",
+    "nama_ibu_kandung": "SERLY MARLINA AMBARITA",
+    "nik": "1210022607110002",
+    "nisn": "0111839591",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "67d11fce-0c42-41d8-a809-d8a020caa59a",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "JENO LERIAN PURBA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-01-16",
+    "nama_ibu_kandung": "RESI BR PANJAITAN",
+    "nik": "1223061601110001",
+    "nisn": "0113964315",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "590b24a6-5e93-49fb-ad55-d91e86141bc8",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "NETHANEEL ELEAZAR SIBARANI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-17",
+    "nama_ibu_kandung": "LEDYA ROSELLY",
+    "nik": "1210091707110003",
+    "nisn": "0118421368",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "f3449175-e76d-433b-9990-d911e6dfe036",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Intan Karunia Br Halawa",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-01-09",
+    "nama_ibu_kandung": "Agustina Br Jebua",
+    "nik": "1210014901120005",
+    "nisn": "0125571814",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9f1c70aa-789b-4c7f-a556-e63926e0e044",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "CHESFABREGAS ABIGAIL SIAGIAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-08-07",
+    "nama_ibu_kandung": "MARTINA BR SIMARMATA",
+    "nik": "1223060708110002",
+    "nisn": "0114994802",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "0512ea9b-da0b-40f0-8aec-e7be13ada244",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "DEVI FEBRIYANI PURBA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-02-02",
+    "nama_ibu_kandung": "RASMAWATI BR SARAGIH",
+    "nik": "1210094202110002",
+    "nisn": "0117137325",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d9b37272-62a5-4951-8589-73b7459c4449",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Yehezkya Maylani Tambunan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-05-13",
+    "nama_ibu_kandung": "Megawati Pane",
+    "nik": "1210095305110001",
+    "nisn": "0111687464",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "a4bb14e7-3fab-4a0e-bb72-e89a35531c4a",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "ROSSA STEFANY SIBURIAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-11-05",
+    "nama_ibu_kandung": "TIURMA ERAWATI SIMAMORA",
+    "nik": "1210014511100009",
+    "nisn": "0107544358",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "c8cb6087-7ac2-4703-9436-ea78b8e59612",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "KENZOU RONAL MANURUNG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-14",
+    "nama_ibu_kandung": "TENTINA KRISTINA MANALU",
+    "nik": "1210091407110002",
+    "nisn": "0118847517",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "979ec2c5-5d7e-4f35-ad6d-f2a1962b230d",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "ANDREAS NATANAEL SIMBOLON",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-13",
+    "nama_ibu_kandung": "GOMGOM BR.SIMANJUNTAK",
+    "nik": "1223061312110002",
+    "nisn": "3110812660",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "64bbab47-ccc1-4e1a-9293-f428cb9503c7",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Lady Efata Marpaung",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-06-28",
+    "nama_ibu_kandung": "Sarmauli Tumanggor",
+    "nik": "1210096806110001",
+    "nisn": "0111781035",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d56d6178-42f0-4517-abf5-f9a255fb2f58",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "FIKA JULITIN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2010-07-05",
+    "nama_ibu_kandung": "NELLY MARIA SIHOMBING",
+    "nik": "3273114507100001",
+    "nisn": "0108536585",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "7ef97285-7d5d-4c55-8d42-fb5ba068a4a7",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Zevanya Abygael Hutabarat",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-05-22",
+    "nama_ibu_kandung": "Dumaris Sidabutar",
+    "nik": "1210016205120002",
+    "nisn": "0127554867",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "3fd836df-0f37-4c95-ae8f-8c4e5f47b3d4",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "ELISA HAWTHORENE",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-01-11",
+    "nama_ibu_kandung": "DEWI PRATIWI",
+    "nik": "1210015101110002",
+    "nisn": "0116953883",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "18e3cfeb-ff8d-43ec-876f-8dd9170a5f93",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Juan Obert Jonatan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-10-17",
+    "nama_ibu_kandung": "HALIMATUSSA'DIAH",
+    "nik": "1222011710120002",
+    "nisn": "3123088202",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "ffeb82fd-2e6c-43ac-bbd8-a02c74e27841",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "JASON VANDER LIM",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-04-27",
+    "nama_ibu_kandung": "HERLINA",
+    "nik": "1275032704100001",
+    "nisn": "0108061064",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "d8b8ac56-57b7-4ae4-ba4b-b487c169af06",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "BRIAN CHRISTOPER RAJA GUKGUK",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-09",
+    "nama_ibu_kandung": "ACI CRISTINA TAMBUNAN",
+    "nik": "1210090907110001",
+    "nisn": "0115751511",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "adea4dba-f575-407d-95f9-d91ea70871ba",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Melgi Silviyana Br Milala",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-12-09",
+    "nama_ibu_kandung": "HEPPYTA LIDIA BR GINTING",
+    "nik": "1210014912110001",
+    "nisn": "0112150295",
+    "last_update": "2025-05-02T20:30:15.973000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "c3a8bee4-e735-4d3e-ba55-f04b4414f616",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "BENONI EFRAIM SUSANTI",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-03-09",
+    "nama_ibu_kandung": "Leida Gultom",
+    "nik": "1210014903110001",
+    "nisn": "0128757375",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "5432ba85-debc-4e74-bcb9-f4a609e47776",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "CELYN STEFANY HUTAURUK",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-01-07",
+    "nama_ibu_kandung": "DELIMA HUTAGAOL",
+    "nik": "1210094701120001",
+    "nisn": "3128129749",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "04c1aae4-2d81-4e57-8f48-361cd0fe4b98",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Kendrew Pratama",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-11",
+    "nama_ibu_kandung": "FERAWATI",
+    "nik": "1222011109120004",
+    "nisn": "0122044263",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "c7a38c9b-b985-4c0c-a4ea-186effed4d0a",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "KENZIE SIYO EVANO PANJAITAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-04-19",
+    "nama_ibu_kandung": "RANTIKA VERAWATI HASIBUAN",
+    "nik": "1210011904110003",
+    "nisn": "0114312265",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "cb94d597-4b03-431d-b617-82d0221b0b74",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Jansen Hasibuan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-03-23",
+    "nama_ibu_kandung": "Masta Br Silaen",
+    "nik": "1210092303110004",
+    "nisn": "0114087365",
+    "last_update": "2025-08-12T08:18:33.230000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "aefd4a09-0723-40f8-b131-6697d8dffbb0",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "YEHUDA PRATAMA SIHOMBING",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-03",
+    "nama_ibu_kandung": "BETTY ROSALINA HUTAGAOL",
+    "nik": "1210020311110001",
+    "nisn": "0111747118",
+    "last_update": "2023-08-19T16:36:15.357000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "bdba0c60-403a-4c16-a1fc-dc1c7e7dd74b",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "AMBROGIO ELIAJER MORETTE SIMAMORA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-01-25",
+    "nama_ibu_kandung": "LUSI NABABAN",
+    "nik": "1223032501120002",
+    "nisn": "0127219029",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "d22a5db0-3344-46da-8f5c-b01e1a0aace3",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "BINTANG KALVARI PURBA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-04-20",
+    "nama_ibu_kandung": "LYNDA WATININGSIH",
+    "nik": "1207052004110003",
+    "nisn": "0115489297",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "7136d6ec-7ab7-4f1d-8d95-49b8e708941d",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "FELIX CHRISTIAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-03-31",
+    "nama_ibu_kandung": "YENNY",
+    "nik": "1210013103110003",
+    "nisn": "0116387659",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "5eee2055-4360-4efe-a7d0-5a9e0b077e6f",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "DAVID GOETAMA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-20",
+    "nama_ibu_kandung": "LILY",
+    "nik": "1209202007110001",
+    "nisn": "0117571622",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "ac9f6116-6189-4f27-aee1-b5eb3c949821",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "MELATI NABABAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-05-16",
+    "nama_ibu_kandung": "Elvisukaesih",
+    "nik": "1210185611120001",
+    "nisn": "0127578040",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "e5b57ad0-c0c4-444d-99f0-fa91e1ee7bd4",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Tiona Anggraini Siregar",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-12",
+    "nama_ibu_kandung": "Ros Tiarma Lubis",
+    "nik": "1210095203120001",
+    "nisn": "0124455831",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "19193093-b489-4ca0-9340-5e7a7dfc460f",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Samuel Billy Steavanus Manik",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-07",
+    "nama_ibu_kandung": "Valentina Sidauruk",
+    "nik": "3204054702110007",
+    "nisn": "0123509834",
+    "last_update": "2025-09-13T09:13:25.227000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "21d0fecd-b83d-4b36-b7cf-c27d2bf76684",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Reza Pratama Simare - mare",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-12-12",
+    "nama_ibu_kandung": "Anna Mariana Br Simamora",
+    "nik": "1220031212110004",
+    "nisn": "0114999416",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "af411107-c586-4b23-9c6f-61cdd183ad53",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "SACIRO CHENNICI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-10-12",
+    "nama_ibu_kandung": "SRI AYU",
+    "nik": "1210011210110004",
+    "nisn": "0115624079",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "8cef67d0-e34a-4bc0-b1a4-9f86f8e299fe",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "ASHER TERUNA NAINGGOLAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-06-22",
+    "nama_ibu_kandung": "YESIKA RULINA HUTAHAEAN",
+    "nik": "1210022206110001",
+    "nisn": "0113301798",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "5cbac31f-98e5-4b1c-a064-348adc39f222",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "KIM MIKHA EMISURA BANGUN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-08",
+    "nama_ibu_kandung": "Meri Gusta Tarigan",
+    "nik": "1210074803120002",
+    "nisn": "0128078020",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "b61f03c3-9240-411f-aea0-6dff2a9e1583",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Juan Samuel Sinaga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-11-02",
+    "nama_ibu_kandung": "Elli Sumarni Panggabean",
+    "nik": "1210010211100003",
+    "nisn": "0108858671",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "ca30e83f-30b6-47a2-a4fb-605a02b41c12",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "RIAN SILITONGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2010-09-26",
+    "nama_ibu_kandung": "HERYANTI NOVITA SIAHAAN",
+    "nik": "1210012609100001",
+    "nisn": "0107152183",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "b24ca06f-1a2a-4731-8cd6-616dd024adc0",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Vito Walmen Corleon Simatupang",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-06-15",
+    "nama_ibu_kandung": "ASRO IDA OKTOSARI DONGORAN",
+    "nik": "1210081506120002",
+    "nisn": "0125217165",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "44b582b9-df38-4422-b0d9-9ef1a2265963",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Cecylia Metta Simatupang",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-30",
+    "nama_ibu_kandung": "Joely Soesiawaty Sinaga",
+    "nik": "1273017010120001",
+    "nisn": "0128172187",
+    "last_update": "2025-09-16T07:31:28.897000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9963a354-1a0c-4848-b684-d16cdd4ee75d",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "LAYNORIE TORISA SITUMORANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-10-03",
+    "nama_ibu_kandung": "ROSIDA",
+    "nik": "1210014310120001",
+    "nisn": "0126774420",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "cd89b337-7116-4f86-9dc5-cba8328f577a",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Natasya Theovalyn Purba",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-10",
+    "nama_ibu_kandung": "Melvarida Naibaho",
+    "nik": "1208295003120002",
+    "nisn": "0126276832",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "c029c6f7-5a7d-4cf8-8ea2-1d27ab63b665",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "ANDRE HUTAPEA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-09-12",
+    "nama_ibu_kandung": "LISNA WATI SIDAURUK",
+    "nik": "1210011209110006",
+    "nisn": "0116014054",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "a44f2780-cba7-4bac-98d3-65a7762f467e",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Reyvaldo Judika Hutapea",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-01-13",
+    "nama_ibu_kandung": "Repina Sianipar",
+    "nik": "1210091301120002",
+    "nisn": "0124097923",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "238945f9-7b36-476c-94a0-e6c8293f4806",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Rei Alvaro Simarmata",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-21",
+    "nama_ibu_kandung": "Ria Tio Silitonga",
+    "nik": "1210142108120001",
+    "nisn": "3122294285",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "1388784f-1475-420e-ac35-9cc8300947a7",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "Rido Pandaoni Sirait",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-06-22",
+    "nama_ibu_kandung": "Duma Risma Farida br Nadeak",
+    "nik": "1210012206120002",
+    "nisn": "0128780101",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "1bef1bd8-c16f-4890-85ac-f058695bbc2f",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Friska Maria Natalia Tambun",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-12-26",
+    "nama_ibu_kandung": "Masnur Pakpahan",
+    "nik": "3172036612111002",
+    "nisn": "0119607456",
+    "last_update": "2025-09-04T10:21:13.500000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "ac572431-afe7-42ac-b341-119fa2b1f899",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "CATHE MARIA TAMBUNAN",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-17",
+    "nama_ibu_kandung": "TALENTA DEVI YANTI SINAGA",
+    "nik": "1401105710110001",
+    "nisn": "0117507920",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "2cc7c388-02cd-4768-bd23-c1bc1f2de355",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "Chelsea Chesealia Che Young",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-04",
+    "nama_ibu_kandung": "Herlinda Rolly Suriyanty Br Simbolon",
+    "nik": "1210014403120003",
+    "nisn": "0122908375",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "5d1a78ba-b527-4e97-b819-d508f634652f",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "KEVIN HALASAN SILITONGA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-11-15",
+    "nama_ibu_kandung": "NENNY MARBUN",
+    "nik": "1224021511110002",
+    "nisn": "0114481739",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "f4035514-599b-4183-8d38-818d67d12af0",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Dev Willy Tamba",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-10-28",
+    "nama_ibu_kandung": "Novika Natalia Br Silalahi",
+    "nik": "1210142810110001",
+    "nisn": "0113259359",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.b",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "2b8765b9-9413-4dfa-8aab-d0bc56a5b48b",
+    "rombongan_belajar_id": "02fab954-5938-440e-aad6-07424562c04f"
+  },
+  {
+    "nama": "Maria Priskila",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-06-14",
+    "nama_ibu_kandung": "TRI HARYANTI",
+    "nik": "1210015406120003",
+    "nisn": "0122215882",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "359cfb64-4251-4d9e-a0d0-e6f40ec87261",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "STEVEN FRANS GONZALES NAIBAHO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-07-13",
+    "nama_ibu_kandung": "PRISDA NOVITA LUSIANA SIBORO",
+    "nik": "3322101307110001",
+    "nisn": "0112665675",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "0a34a9f4-1699-4721-b94f-b6a0383aaa41",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "Steven Hamonangan Parapat",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-07",
+    "nama_ibu_kandung": "Tiar Nellys Suriani Lumbantobing",
+    "nik": "1210020711120001",
+    "nisn": "0125921124",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "22a24693-386d-4d6a-bd54-ad8249c94787",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "DANIEL IMMANUEL SIREGAR",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-06-17",
+    "nama_ibu_kandung": "MARLINA LOREND ERIDA SINAGA",
+    "nik": "1210021706110001",
+    "nisn": "0115631146",
+    "last_update": "2025-02-27T12:48:58.460000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "c0b968fa-b677-45e5-9da5-6d2f1c546a6b",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "YOHANES SILALAHI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-03-05",
+    "nama_ibu_kandung": "LANGGAM SIANTURI",
+    "nik": "1210020503110001",
+    "nisn": "0114703501",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.c",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "19138545-5859-40f5-9b54-2654fc290d91",
+    "rombongan_belajar_id": "d891e632-4762-4d22-b146-8b83108f9972"
+  },
+  {
+    "nama": "DAVID AGUNG IMANUEL PURBA",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-02-21",
+    "nama_ibu_kandung": "TIUR MARLINA MELAYATI HUTABARAT",
+    "nik": "1210012102110002",
+    "nisn": "0118834236",
+    "last_update": "2025-10-02T11:22:23.120000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "c7eb8c24-8a87-424a-8b94-14c1d2e0d603",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "JEREMIA TIMOTI TAMPUBOLON",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-17",
+    "nama_ibu_kandung": "MARLINA NAINGGOLAN",
+    "nik": "1210011708120005",
+    "nisn": "0123711058",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.c",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "6aa10876-34c3-4a29-afda-c3565b857f2a",
+    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+  },
+  {
+    "nama": "VELICIA OKTARIVERA BR NAPITUPULU",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-19",
+    "nama_ibu_kandung": "RINI ANASTASIA BESTARIA BR SIHOTANG",
+    "nik": "1207195910110001",
+    "nisn": "0116798336",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "9.b",
+    "tingkat": "Kelas 9",
+    "peserta_didik_id": "1c8f7161-f7ce-4e4e-b76f-ed8a9770fe68",
+    "rombongan_belajar_id": "db0e19f0-f096-4ad7-b17e-9c999447a6ad"
+  },
+  {
+    "nama": "KEZIA LOVELY",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-08-15",
+    "nama_ibu_kandung": "HOTMAULI SITUMORANG",
+    "nik": "1222045508120002",
+    "nisn": "3129711856",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "10531c3a-a481-4d7c-86dc-cb055c78536c",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Chealsea Anggelia Hasibuan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-13",
+    "nama_ibu_kandung": "Lucia Imelda Sinaga",
+    "nik": "1210095303130002",
+    "nisn": "0132641562",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "d8e16fc2-edbf-45df-8ca2-3adbc06153fe",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Blesshe Tama Rajagukguk",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-06-16",
+    "nama_ibu_kandung": "Sri Ganti Tampubolon",
+    "nik": "1222055606130001",
+    "nisn": "3132676177",
+    "last_update": "2025-10-09T08:38:50.123000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "ca2c19a6-70fd-414f-bf6e-e89c5b3a6a1a",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Alvin Michael Hutapea",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-10-21",
+    "nama_ibu_kandung": "Lisna Wati Sidauruk",
+    "nik": "1210012110120004",
+    "nisn": "0122754877",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "00f057b9-1340-4c0a-ae97-941d7b9ca749",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Rachel Gracia Sirait",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-30",
+    "nama_ibu_kandung": "Dessy Rahayu Simanjuntak",
+    "nik": "1214067005130001",
+    "nisn": "0134745755",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c1755c5e-a239-4804-a3b8-97b5ab9be4a6",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Evelyn Lie Yordan",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-05-25",
+    "nama_ibu_kandung": "Meri",
+    "nik": "1210016505130006",
+    "nisn": "0138258615",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c2064c6a-1283-47a6-8830-03326ca1d276",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Crystian Natahael Ginting",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-20",
+    "nama_ibu_kandung": "Dewita Br Sebayang",
+    "nik": "1210012012120001",
+    "nisn": "3124228814",
+    "last_update": "2025-02-14T07:27:59.617000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "33c20fb4-b53b-453e-b7c5-27ba2b805da7",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Devon Guardianalden Silitonga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-09-15",
+    "nama_ibu_kandung": "VANNY ERLIAN BR NABABAN",
+    "nik": "1210011509130001",
+    "nisn": "0138977512",
+    "last_update": "2025-12-03T11:30:37.510000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "def58b8d-34ad-4edd-931a-d0683ba151c9",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Alfaro Gabriel Siregar",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-07-24",
+    "nama_ibu_kandung": "Astri Nova Pasaribu",
+    "nik": "1210012407130006",
+    "nisn": "0137937609",
+    "last_update": "2025-02-10T14:51:19.813000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "b72fdfd4-8322-4c0a-9b3b-258883ca5c75",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Rahel Kristina Br Regar",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-08-19",
+    "nama_ibu_kandung": "Rosinta Br Siagian",
+    "nik": "1210185908130001",
+    "nisn": "3136837104",
+    "last_update": "2025-11-21T10:16:01.990000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "19d6613e-0a21-4bf7-9b88-86bb79e2a535",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Edo Cajuel Napitupulu",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-17",
+    "nama_ibu_kandung": "Feronika Sihombing",
+    "nik": "1223051705130001",
+    "nisn": "0132288412",
+    "last_update": "2025-12-05T16:11:32.317000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "ab7723d7-d18d-470d-b314-c77778bf035c",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "SYALOMITA GRACYA SIREGAR",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-26",
+    "nama_ibu_kandung": "ELFRIDA E TAMBUNAN",
+    "nik": "1223066603130001",
+    "nisn": "3133469855",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "ca74470e-b82d-4f7b-8a52-f1e0a49189d6",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "FRITZ TAMADO RUMAHORBO",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-12-03",
+    "nama_ibu_kandung": "SILVIA MOLENTINA SILALAHI",
+    "nik": "1222020312120002",
+    "nisn": "3122536300",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "81a940ea-7d0e-4a2d-81fe-8b0656c9eea1",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "FRANCLINE FICO SAVERIO NAPITUPULU",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-21",
+    "nama_ibu_kandung": "NURYANTI MARLINA BR SIMANJUNTAK",
+    "nik": "1210012111120005",
+    "nisn": "0125720220",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "902146f5-9328-4c02-90fe-2b3e678fe074",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "CHALVINE FICO SAVERIO NAPITUPULU",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-21",
+    "nama_ibu_kandung": "NURYANTI MARLINA BR SIMANJUNTAK",
+    "nik": "1210012111120004",
+    "nisn": "0123853256",
+    "last_update": "2025-12-18T10:24:45.670000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "f301f354-6508-429e-9272-e65742edcb8e",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "CHARISA VANDIN SIMBOLON",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-10-12",
+    "nama_ibu_kandung": "ELVI OKTORIDA SILAEN",
+    "nik": "1210015210130003",
+    "nisn": "0139375539",
+    "last_update": "2025-10-06T11:46:17.017000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "7f06ec45-3ef1-4aa8-a923-e90f2a879a83",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "DANIEL DOMINIC HASUGIAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-04-04",
+    "nama_ibu_kandung": "Ade Irma Suryani Br Sinaga",
+    "nik": "1210020404130001",
+    "nisn": "3138678013",
+    "last_update": "2025-09-23T18:29:33.683000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "fa820e5b-5f56-453a-99ac-dd8077e668d9",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "ALVARO ANUGERAH SILALAHI",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-09-25",
+    "nama_ibu_kandung": "RITA SIMBOLON",
+    "nik": "1604102509120002",
+    "nisn": "3128271176",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "1a6716f0-474b-45a8-8d1c-557fefdf6319",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Hizkia Simbolon",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-10-27",
+    "nama_ibu_kandung": "Rohani Br Limbong",
+    "nik": "1210092710120001",
+    "nisn": "0122743865",
+    "last_update": "2025-12-08T08:13:25.243000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "b70f7f14-2591-4d1e-8975-9f4417a03b9e",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Merlin Simaremare",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-11-02",
+    "nama_ibu_kandung": "Belty Morianna Pardede",
+    "nik": "1210024211120001",
+    "nisn": "0123483101",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "8a08de37-42ff-4219-a3d2-99f0cfab28de",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "EZRA WAJRACENA BATMANEOLIUS SEMBIRING MUHAM",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-15",
+    "nama_ibu_kandung": "PATRECIA MARIA OLIVIA SINAULAN",
+    "nik": "3671061508120006",
+    "nisn": "0121558763",
+    "last_update": "2025-09-13T09:13:25.227000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "7ab56075-b5dc-4b2c-a8c7-9e683bc67af2",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Herbin Martua Pardede",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-06-27",
+    "nama_ibu_kandung": "Herta Margaretta Tanjung",
+    "nik": "1210092706120001",
+    "nisn": "0125594033",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "8062e440-1ec4-42ee-b60a-bd45349127fc",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "SARA HAZEL PATRICIA SITANGGANG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-08-14",
+    "nama_ibu_kandung": "ROLAN JORIS LUMBAN BATU",
+    "nik": "2171115408120005",
+    "nisn": "0123841004",
+    "last_update": "2023-04-11T21:30:12.483000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "124ebbf7-3266-48ee-be09-c60e8b12a36d",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "VALENCIA FEBRYANI TAMBA",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-05-15",
+    "nama_ibu_kandung": "DEWI SAMOSIR",
+    "nik": "1210195505120004",
+    "nisn": "0128895640",
+    "last_update": "2025-09-03T12:16:52.557000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "270f09a1-c4eb-412e-a8da-d375e9abc1b0",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Muthia Kasih Br. Dongoran",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2011-10-27",
+    "nama_ibu_kandung": "Rusly Br Silaban",
+    "nik": "1210086710110003",
+    "nisn": "0113395100",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "40e2e9a8-1656-42ea-a3b6-df631d4d0107",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "RAFA YUDA AGUSTINUS MANULLANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-28",
+    "nama_ibu_kandung": "HERNIKA RESTATI HALOHO",
+    "nik": "1402092808120002",
+    "nisn": "0126906760",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "57ffe929-b801-47cc-9853-e8c363cd7a76",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "GILBERD HALOMOAN NAINGGOLAN",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-24",
+    "nama_ibu_kandung": "HERMIAN TAMBA",
+    "nik": "1210192408120001",
+    "nisn": "0123640173",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "3789798f-cc55-4ef1-87c5-f436bf1e12d3",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "SEERA JAYA BR MANURUNG",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-01-13",
+    "nama_ibu_kandung": "ERI PRIDIANA PASARIBU",
+    "nik": "1402085301130001",
+    "nisn": "0138055441",
+    "last_update": "2025-05-06T16:30:16.117000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "69446cfe-164c-47c5-bf59-4cb235cd6da7",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Gabriel Alexander Siagian",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-03-20",
+    "nama_ibu_kandung": "Meli Herfina Pangaribuan",
+    "nik": "1210012003130001",
+    "nisn": "0131743170",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "c3dbd6dc-23b7-4f6d-a432-4b53746730da",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "CHELSEA MANIK",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-03-14",
+    "nama_ibu_kandung": "FRISKA VALENTINA SIANTURI",
+    "nik": "1210095403130001",
+    "nisn": "0132205934",
+    "last_update": "2025-12-01T11:30:24.357000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "33b2cade-a56c-4279-a419-fbbdfdd38fea",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Valentino Putra Sinaga",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-05-27",
+    "nama_ibu_kandung": "PURNAMA BR TANGGANG",
+    "nik": "1210092705130003",
+    "nisn": "3137267953",
+    "last_update": "2025-12-09T10:07:06.840000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "566686d3-83b9-43eb-ac9b-d53cced63ff2",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Yosia Uli Foresta Sirait",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-11-18",
+    "nama_ibu_kandung": "Julia Lorensa Tampubolon",
+    "nik": "1506025811130003",
+    "nisn": "3138319417",
+    "last_update": "2025-08-21T10:09:41.267000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "8d1b8bb1-4c94-4556-bea3-0d7bdcaa0a40",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Crisann Nathan",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2013-12-18",
+    "nama_ibu_kandung": "Yuliani",
+    "nik": "1271061812130002",
+    "nisn": "0137237840",
+    "last_update": "2025-02-12T12:30:17.390000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "50891cdb-0c9e-44a2-82ae-202700ddabf4",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "SINTIKHE GRACIA SIGIRO",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-07-11",
+    "nama_ibu_kandung": "MARIANA DINARIO",
+    "nik": "1223015107120001",
+    "nisn": "0127804903",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "b6982d2e-9958-4cfb-9c6e-289f951f369f",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Jordan Fabrigio Sinambela",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-02-21",
+    "nama_ibu_kandung": "Tiorani Br Batuara",
+    "nik": "1210092102120002",
+    "nisn": "0128629645",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "3210b94d-8f83-4314-8825-3c36784849e9",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Vania Charin Deslah Br Turnip",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-12-04",
+    "nama_ibu_kandung": "Happy Santaluciana",
+    "nik": "1210014412130001",
+    "nisn": "3136258465",
+    "last_update": "2025-02-10T16:30:16.030000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "492dfdcd-6606-494d-92d3-ca1363085387",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Maria Febiola Br.Sihombing",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-02-19",
+    "nama_ibu_kandung": "Osna Elperide Sinaga",
+    "nik": "1210025902130001",
+    "nisn": "3133715114",
+    "last_update": "2025-05-13T15:52:46.420000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "397b7049-8ca7-4a10-a4ec-c0c64ee3337f",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "Karenina Wijaya",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2012-03-16",
+    "nama_ibu_kandung": "SONDANG NELFRIDA SIANTURI",
+    "nik": "1210025603120001",
+    "nisn": "0125996657",
+    "last_update": "2025-05-02T20:30:15.973000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "9fa7e35a-2518-4e1e-9ba8-77eee4315d24",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "RENO AGUSTHIAN MANULLANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-08-19",
+    "nama_ibu_kandung": "Indrawati Sipayung",
+    "nik": "1210091908120001",
+    "nisn": "3128918578",
+    "last_update": "2025-09-10T14:29:56.700000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "2ab56050-16b7-4210-80bb-8c5f9558809d",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "Tiur Maduma Sinaga",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-08-09",
+    "nama_ibu_kandung": "Sarma Raja Gukguk",
+    "nik": "1210084908130002",
+    "nisn": "3136763353",
+    "last_update": "2023-03-16T16:19:31.793000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "e1ddc25c-02be-4749-94b0-da15ba7ea705",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "DEVANA CARISHA SIMBOLON",
+    "jenis_kelamin": "P",
+    "tanggal_lahir": "2013-01-20",
+    "nama_ibu_kandung": "PESTAULI NAINGGOLAN",
+    "nik": "1222046001130001",
+    "nisn": "3137283302",
+    "last_update": "2023-04-05T17:30:25.250000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "6f841930-8d99-44f3-a47c-6f747d62d035",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "NOELL CHRISTIAN OMPUSUNGGU",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2012-11-10",
+    "nama_ibu_kandung": "SUSYANI",
+    "nik": "1210201011120002",
+    "nisn": "3123666473",
+    "last_update": "2025-10-13T10:59:45.867000",
+    "rombel": "7.c",
+    "tingkat": "Kelas 7",
+    "peserta_didik_id": "2ca1607d-6fc6-4fc8-aed1-5bf6502a2704",
+    "rombongan_belajar_id": "5dfce576-e370-4463-9f4d-aed1c633a7a5"
+  },
+  {
+    "nama": "KELSEN BUNGARAN SITUMORANG",
+    "jenis_kelamin": "L",
+    "tanggal_lahir": "2011-08-15",
+    "nama_ibu_kandung": "WIDYAWATI EMALYA SIREGAR",
+    "nik": "1223061508110001",
+    "nisn": "0116111771",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "8.a",
+    "tingkat": "Kelas 8",
+    "peserta_didik_id": "5564518a-a346-4d3f-a68a-ae95dccd4b0c",
+    "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  }
+];
+</script>
+
+<style>
+  :root {
+    --bg: #020408;
+    --accent: #00f2ff;
+    --error: #ff3131;
+    --card-bg: rgba(6, 12, 20, 0.98);
+    --border: rgba(0, 242, 255, 0.15);
+  }
+
+  * { box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+  
+  body { 
+    background: var(--bg); color: #fff; margin: 0; padding: 15px; 
+    display: flex; justify-content: center; min-height: 100vh; 
+    overflow-x: hidden; position: relative;
+  }
+
+  /* BACKGROUND ANIMATION */
+  body::before {
+    content: ""; position: fixed; top: 0; left: 0; width: 200%; height: 200%;
+    background-image: 
+        linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveGrid 20s linear infinite; z-index: -2;
+  }
+  .orb {
+    position: fixed; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+    filter: blur(60px); border-radius: 50%; z-index: -1;
+    animation: floatOrb 15s infinite ease-in-out;
+  }
+  @keyframes moveGrid { from { transform: translateY(0); } to { transform: translateY(-40px); } }
+  @keyframes floatOrb { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(80px, 40px); } }
+
+  /* LOGIN SYSTEM */
+  #loginScreen { position: fixed; inset: 0; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10000; transition: 1s cubic-bezier(0.4, 0, 0.2, 1); }
+  .login-box { width: 300px; text-align: center; }
+  .pin-container { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
+  .pin-box { width: 45px; height: 45px; border-bottom: 3px solid #1a1a1a; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 900; color: var(--accent); }
+  .pin-box.active { border-color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .key { width: 65px; height: 65px; border-radius: 50%; border: 1px solid var(--border); background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; cursor: pointer; }
+
+  /* MAIN APP TRANSITION */
+  .wadah { 
+    width: 100%; max-width: 420px; display: none; opacity: 0; 
+    transform: translateY(60px);
+    transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1); 
+  }
+  .wadah.aktif { display: block; }
+  .wadah.animasi-masuk { opacity: 1; transform: translateY(0); }
+  
+  .kedip-cahaya { color: var(--accent); font-weight: 900; animation: glow-pulse 2s infinite ease-in-out; }
+  @keyframes glow-pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; text-shadow: 0 0 15px var(--accent); } }
+
+  /* PANEL SEARCH */
+  .panel-search { position: relative; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(30px); border: 1px solid var(--border); border-radius: 24px; padding: 20px; z-index: 100; }
+  .nav-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 15px; }
+  .tab { height: 38px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; font-size: 10px; font-weight: 900; color: #718096; display: flex; align-items: center; justify-content: center; text-transform: uppercase; cursor: pointer; }
+  .tab.aktif { background: var(--accent); color: #000; box-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
+  
+  input { width: 100%; background: rgba(0, 0, 0, 0.6); border: 1px solid var(--border); height: 50px; padding: 0 15px; border-radius: 12px; color: #fff; outline: none; margin-bottom: 5px; font-size: 14px; }
+
+  #predictiveList { 
+    position: absolute; top: 100%; left: 20px; right: 20px; 
+    background: #060a12; border: 1px solid var(--accent); 
+    border-radius: 12px; max-height: 180px; overflow-y: auto; 
+    display: none; margin-top: 5px; z-index: 1001; 
+  }
+  .predictive-item { padding: 12px 15px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; font-size: 13px; color: #cbd5e0; }
+  .predictive-item:hover { background: var(--accent); color: #000; font-weight: 800; }
+
+  #errorMessage { color: var(--error); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 12px; display: none; text-shadow: 0 0 10px var(--error); animation: shake 0.3s ease-in-out; }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+  .btn-cari { width: 100%; height: 50px; background: #fff; color: #000; border: none; border-radius: 12px; font-weight: 900; cursor: pointer; margin-bottom: 10px; }
+
+  .action-group { display: none; gap: 8px; margin-top: 5px; }
+  .btn-print { flex: 1; height: 45px; background: rgba(0, 242, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); border-radius: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-copy { width: 55px; height: 45px; background: #111; color: var(--accent); border: 1px solid var(--border); border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+  /* CARD STYLE */
+  .card-siswa { position: relative; margin-top: 20px; padding: 1.5px; border-radius: 24px; overflow: hidden; opacity: 0; transform: translateY(30px); transition: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .card-siswa.show { opacity: 1; transform: translateY(0); }
+  .card-siswa.hide { opacity: 0; transform: translateY(40px); transition: 0.4s ease-in; }
+  
+  .card-siswa::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, var(--accent), transparent, #fff, transparent); animation: rotate-border 4s linear infinite; }
+  @keyframes rotate-border { 100% { transform: rotate(360deg); } }
+  
+  .card-inner { position: relative; background: var(--card-bg); border-radius: 22.5px; padding: 20px; z-index: 1; }
+
+  .label-id { font-size: 8.5px; color: var(--accent); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; display: block; }
+  .val-id { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+  .badge-id { font-family: 'Monaco', 'Consolas', monospace; font-size: 9px; background: rgba(0,0,0,0.4); padding: 6px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); color: #888; word-break: break-all; margin-bottom: 10px; }
+
+  #loadingOverlay { position: fixed; inset: 0; background: rgba(2, 4, 8, 0.95); display: none; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; }
+
+  /* BUTTON SAVE IMAGE */
+  .btn-unduh-kecil { cursor: pointer; transition: 0.2s; opacity: 0.4; display: flex; align-items: center; }
+  .btn-unduh-kecil:active { transform: scale(0.9); opacity: 1; }
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="https://files.catbox.moe/03ayi6.mp3" type="audio/mpeg">
+</audio>
+
+<div class="orb" style="top: 15%; left: 10%;"></div>
+<div class="orb" style="bottom: 25%; right: 10%; animation-delay: -5s;"></div>
+
+<div id="loginScreen">
+  <div class="login-box">
+    <div style="font-size: 10px; letter-spacing: 5px; color: var(--accent); font-weight: 900; margin-bottom: 10px;">SECURE ACCESS</div>
+    <div class="pin-container">
+      <div class="pin-box" id="p1"></div><div class="pin-box" id="p2"></div><div class="pin-box" id="p3"></div><div class="pin-box" id="p4"></div>
+    </div>
+    <div class="keypad">
+      <div class="key" onclick="tap(1)">1</div><div class="key" onclick="tap(2)">2</div><div class="key" onclick="tap(3)">3</div>
+      <div class="key" onclick="tap(4)">4</div><div class="key" onclick="tap(5)">5</div><div class="key" onclick="tap(6)">6</div>
+      <div class="key" onclick="tap(7)">7</div><div class="key" onclick="tap(8)">8</div><div class="key" onclick="tap(9)">9</div>
+      <div class="key" style="border:none; color:#444; font-size:12px" onclick="reset()">CLR</div>
+      <div class="key" onclick="tap(0)">0</div>
+    </div>
+  </div>
+</div>
+
+<div id="loadingOverlay">
+  <div style="width:45px; height:45px; border:3px solid #111; border-top:3px solid var(--accent); border-radius:50%; animation: rotate-border 0.8s linear infinite;"></div>
+  <p style="color:var(--accent); font-size:9px; letter-spacing:4px; margin-top:20px; font-weight:900;">DATABASE PROCESSING...</p>
+</div>
+
+<div class="wadah" id="mainApp">
+  <div style="text-align: center; margin: 40px 0 20px 0;">
+    <h1 style="font-size: 10px; letter-spacing: 6px; color: var(--accent); margin: 0; font-weight: 900;">DATABASE SMP</h1>
+    <p style="font-size: 28px; font-weight: 900; margin: 5px 0; letter-spacing: -1px;">METHODIST <span class="kedip-cahaya">II</span></p>
+  </div>
+
+  <div class="panel-search">
+    <div class="nav-tabs">
+      <div class="tab aktif" id="t-nama" onclick="setM('nama','t-nama')">Nama</div>
+      <div class="tab" id="t-rombel" onclick="setM('rombel','t-rombel')">Rombel</div>
+      <div class="tab" id="t-tingkat" onclick="setM('tingkat','t-tingkat')">Tingkat</div>
+      <div class="tab" id="t-tgl" onclick="setM('tanggal_lahir','t-tgl')">Lahir</div>
+    </div>
+    <div style="position:relative;">
+        <input id="cariInput" placeholder="Masukkan Nama Siswa..." oninput="onInputChange()" autocomplete="off">
+        <div id="predictiveList"></div>
+    </div>
+    <div id="errorMessage">⚠ INPUT KOSONG! MASUKKAN KATA KUNCI</div>
+    <button class="btn-cari" onclick="prosesCari()">CARI SEKARANG</button>
+    <div id="actionGroup" class="action-group">
+      <button class="btn-print" onclick="window.print()">🖨️ CETAK DATA</button>
+      <button class="btn-copy" onclick="copyData()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div id="hasil"></div>
+</div>
+
+<textarea id="tempCopy" style="position:absolute; left:-9999px;"></textarea>
+
+<script>
+let pin = "";
+const targetPin = "0002";
+let mode = "nama";
+let resLast = [];
+
+function tap(n) {
+  if (pin.length < 4) {
+    pin += n;
+    document.getElementById('p' + pin.length).textContent = "*";
+    document.getElementById('p' + pin.length).classList.add('active');
+    if (pin.length === 4) setTimeout(check, 250);
+  }
+}
+
+function reset() {
+  pin = "";
+  for(let i=1; i<=4; i++) { 
+    document.getElementById('p'+i).textContent = ""; 
+    document.getElementById('p'+i).classList.remove('active'); 
+  }
+}
+
+function check() {
+  if (pin === targetPin) {
+    // START BACKSOUND UPON LOGIN
+    const music = document.getElementById('bgMusic');
+    if(music) {
+      music.volume = 0.2;
+      music.play().catch(e => console.log("Audio play blocked"));
+    }
+
+    const login = document.getElementById('loginScreen');
+    const app = document.getElementById('mainApp');
+    login.style.opacity = "0";
+    login.style.transform = "scale(1.1)";
+    setTimeout(() => {
+      login.style.display = "none";
+      app.style.display = "block";
+      setTimeout(() => app.classList.add('animasi-masuk'), 50);
+    }, 800);
+  } else { reset(); }
+}
+
+function setM(m, id) {
+  mode = m;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('aktif'));
+  document.getElementById(id).classList.add('aktif');
+  document.getElementById("cariInput").value = "";
+  onInputChange();
+}
+
+function onInputChange() {
+    document.getElementById("errorMessage").style.display = "none";
+    updatePredictive();
+}
+
+function updatePredictive() {
+  const q = document.getElementById("cariInput").value.trim().toLowerCase();
+  const list = document.getElementById("predictiveList");
+  if(!q) { list.style.display = "none"; return; }
+  const matches = databaseSiswa.filter(s => (s[mode] || "").toString().toLowerCase().includes(q));
+  const uniqueMatches = [...new Set(matches.map(s => s[mode]))].slice(0, 5);
+  if(uniqueMatches.length > 0) {
+    list.innerHTML = uniqueMatches.map(val => `<div class="predictive-item" onclick="selectItem('${val}')">${val}</div>`).join('');
+    list.style.display = "block";
+  } else { list.style.display = "none"; }
+}
+
+function selectItem(val) {
+  document.getElementById("cariInput").value = val;
+  document.getElementById("predictiveList").style.display = "none";
+  prosesCari();
+}
+
+function clearExistingCards() {
+    const cards = document.querySelectorAll('.card-siswa');
+    cards.forEach(c => c.classList.add('hide'));
+    document.getElementById("actionGroup").style.display = "none";
+    setTimeout(() => { document.getElementById("hasil").innerHTML = ""; }, 400);
+}
+
+function prosesCari() {
+  const q = document.getElementById("cariInput").value.trim().toLowerCase();
+  document.getElementById("predictiveList").style.display = "none";
+  if (q.length === 0) {
+      clearExistingCards();
+      document.getElementById("errorMessage").style.display = "block";
+      return;
+  }
+  const loader = document.getElementById("loadingOverlay");
+  loader.style.display = "flex";
+  
+  setTimeout(() => {
+    loader.style.display = "none";
+    resLast = databaseSiswa.filter(s => (s[mode] || "").toString().toLowerCase().includes(q));
+    const resDiv = document.getElementById("hasil");
+    resDiv.innerHTML = "";
+    
+    if(resLast.length === 0) {
+        resDiv.innerHTML = "<p style='text-align:center; color:#444; margin-top:30px; font-size:12px;'>DATA TIDAK DITEMUKAN</p>";
+        document.getElementById("actionGroup").style.display = "none";
+        return;
+    }
+
+    document.getElementById("actionGroup").style.display = "flex";
+
+    resLast.forEach((s) => {
+      const card = document.createElement('div');
+      card.className = "card-siswa";
+      card.innerHTML = `
+        <div class="card-inner">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid rgba(0, 242, 255, 0.2);padding-bottom:12px;">
+            <div>
+              <span style="font-weight:900;color:var(--accent);font-size:18px;display:block;letter-spacing:-0.5px;">${s.nama}</span>
+              <span style="font-size:10px;color:#888;font-weight:700;text-transform:uppercase;">${s.tingkat} • ${s.jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan'}</span>
+            </div>
+            <span style="font-size:10px;background:var(--accent);color:#000;padding:4px 10px;border-radius:6px;font-weight:900;">${s.rombel}</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns: 1fr 1fr;gap:12px;margin-top:18px;">
+            <div><span class="label-id">NISN</span><div class="val-id">${s.nisn}</div></div>
+            <div><span class="label-id">NIK</span><div class="val-id">${s.nik}</div></div>
+            <div><span class="label-id">TGL LAHIR</span><div class="val-id">${s.tanggal_lahir}</div></div>
+            <div><span class="label-id">IBU KANDUNG</span><div class="val-id">${s.nama_ibu_kandung}</div></div>
+          </div>
+
+          <div style="margin-top:10px; padding-top:15px; border-top:1px dashed rgba(255,255,255,0.1);">
+            <span class="label-id">PESERTA DIDIK ID</span>
+            <div class="badge-id">${s.peserta_didik_id}</div>
+            <span class="label-id">ROMBONGAN BELAJAR ID</span>
+            <div class="badge-id">${s.rombongan_belajar_id}</div>
+          </div>
+
+          <div style="margin-top:15px; display:flex; justify-content:space-between; align-items:center;">
+            <div class="btn-unduh-kecil" onclick="simpanGambar(this, '${s.nama}')">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+               <span style="font-size:8px; color:var(--accent); font-weight:900; margin-left:5px;">SIMPAN PNG</span>
+            </div>
+            <span style="font-size:8px;color:#444;font-weight:700;">UPDATE: ${s.last_update}</span>
+          </div>
+        </div>`;
+      resDiv.appendChild(card);
+    });
+
+    updateStatistik(resLast);
+
+    setTimeout(() => {
+      document.querySelectorAll('.card-siswa').forEach((c, i) => {
+        setTimeout(() => c.classList.add('show'), i * 150);
+      });
+    }, 50);
+  }, 800);
+}
+
+function updateStatistik(data) {
+  if (!data || data.length === 0) return;
+  const total = data.length;
+  const laki = data.filter(s => s.jenis_kelamin === 'L').length;
+  const perem = data.filter(s => s.jenis_kelamin === 'P').length;
+  const statHTML = `
+    <div style="margin: 20px 0 10px 0; padding: 15px; background: rgba(0, 242, 255, 0.05); border-radius: 15px; border: 1px dashed rgba(0, 242, 255, 0.3); animation: fadeIn 0.8s ease; clear: both;">
+      <div style="font-size: 9px; color: var(--accent); font-weight: 900; letter-spacing: 2px; margin-bottom: 5px;">DATA ANALYTICS</div>
+      <div style="font-size: 14px; color: #fff; font-weight: 700;">Total: <span style="color:var(--accent)">${total}</span> Siswa</div>
+      <div style="font-size: 10px; color: #aaa; margin-top: 4px;">👨‍🎓 ${laki} Laki-laki | 👩‍🎓 ${perem} Perempuan</div>
+    </div>`;
+  document.getElementById("hasil").insertAdjacentHTML('afterbegin', statHTML);
+}
+
+function simpanGambar(btn, namaSiswa) {
+    const kartu = btn.closest('.card-siswa');
+    btn.style.opacity = "1";
+    html2canvas(kartu, {
+        backgroundColor: "#020408",
+        scale: 2,
+        useCORS: true
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Data_' + namaSiswa.replace(/\s+/g, '_') + '.png';
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        btn.style.opacity = "0.4";
+    });
+}
+
+function copyData() {
+  if (!resLast.length) return;
+  const t = resLast.map(s => `NAMA: ${s.nama}\nNISN: ${s.nisn}\nNIK: ${s.nik}\nROMBEL: ${s.rombel}\nLAHIR: ${s.tanggal_lahir}\nIBU: ${s.nama_ibu_kandung}`).join("\n\n---\n\n");
+  const area = document.getElementById("tempCopy");
+  area.value = t; area.select(); document.execCommand('copy');
+  const toast = document.createElement('div');
+  toast.style = "position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:var(--accent); color:#000; padding:10px 25px; border-radius:30px; font-weight:900; font-size:11px; z-index:10002; box-shadow:0 0 20px var(--accent);";
+  toast.textContent = "DATABASE COPIED";
+  document.body.appendChild(toast);
+  setTimeout(() => toast.remove(), 2000);
+}
+</script>
+</body>
+</html>
