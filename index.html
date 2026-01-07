@@ -1663,16 +1663,16 @@ const databaseSiswa = [
   },
   {
     "nama": "Nicholas Orlando Hutajulu",
-    "jenis_kelamin": "L",
+    "jenis_kelamin": "unknown ",
     "tanggal_lahir": "2012-02-02",
-    "nama_ibu_kandung": "Anita Simanjuntak",
-    "nik": "1210140202120001",
-    "nisn": "0122303119",
+    "nama_ibu_kandung": "**************",
+    "nik": "unknown",
+    "nisn": "unknown",
     "last_update": "2025-02-21T09:14:45.690000",
-    "rombel": "8.c",
-    "tingkat": "Kelas 8",
-    "peserta_didik_id": "d8b58cbf-90ef-4024-a2cf-03cb2e9ea0fb",
-    "rombongan_belajar_id": "3ecf68c4-e89f-4269-8bef-d67b590520d2"
+    "rombel": "Unknown",
+    "tingkat": "unknown",
+    "peserta_didik_id": "unknown",
+    "rombongan_belajar_id": "unknown"
   },
   {
     "nama": "Andryan Natanael Nainggolan",
@@ -3870,6 +3870,19 @@ const databaseSiswa = [
     "tingkat": "Kelas 8",
     "peserta_didik_id": "5564518a-a346-4d3f-a68a-ae95dccd4b0c",
     "rombongan_belajar_id": "ff029655-024f-4f27-a794-0b069e20eb37"
+  },
+  {
+    "nama": "OPTIMUS PRIMEE999",
+    "jenis_kelamin": "X",
+    "tanggal_lahir": "9999999-999999-9999",
+    "nama_ibu_kandung": "MEGATRON XXXX",
+    "nik": "999999999999",
+    "nisn": "99999999",
+    "last_update": "2025-02-21T09:14:45.690000",
+    "rombel": "X9",
+    "tingkat": "∞",
+    "peserta_didik_id": "9999999999999999999999999999999",
+    "rombongan_belajar_id": "99999999999999999999999999"
   }
 ];
 </script>
@@ -4212,7 +4225,7 @@ function simpanGambar(btn, namaSiswa) {
     btn.style.opacity = "1";
     html2canvas(kartu, {
         backgroundColor: "#020408",
-        scale: 5,
+        scale: 2,
         useCORS: true
     }).then(canvas => {
         const link = document.createElement('a');
